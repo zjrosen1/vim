@@ -1,8 +1,11 @@
 " Set global mapleader
 let mapleader = ","
 
-" Plug-in Installer
-execute pathogen#infect()
+" Plug-in Manager
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+filetype plugin indent on
 
 if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
@@ -33,7 +36,6 @@ nmap <silent> <leader>h :set hlsearch!<CR>
 " Useful for auto setting hidden buffers
 set hidden
 
-filetype plugin indent on
 
 " Load NERDTree by default for directory
 autocmd vimenter * if !argc() | NERDTree | endif
