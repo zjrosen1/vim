@@ -1,18 +1,24 @@
 "##########################
 "#                        #
-"#   My badass .vimrc     #
+"#   My WIP .vimrc        #
 "#   Author: Zack Rosen   #
 "#   Updated: 9/14/13     #
 "#                        #
 "##########################
 
-" Set global mapleader
-let mapleader = ","
 
 " Plug-in Manager
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
+
+" Set global mapleader
+let mapleader = ","
+
+" Set encoding
+set encoding=utf-8
+set nocompatible
+set noswapfile
 
 " Auto source vimrc on save & update vimrc on the fly with ,v
 if has("autocmd")
