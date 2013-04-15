@@ -1,23 +1,29 @@
+"##########################
+"#                        #
+"#   My badass .vimrc     #
+"#   Author: Zack Rosen   #
+"#   Updated: 9/14/13     #
+"#                        #
+"##########################
+
 " Set global mapleader
 let mapleader = ","
 
 " Plug-in Manager
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-
 filetype plugin indent on
 
+" Auto source vimrc on save & update vimrc on the fly with ,v
 if has("autocmd")
-	autocmd bufwritepost .vimrc source $MYVIMRC
+	autocmd BufWritePost vimrc source $MYVIMRC
 endif
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " Enable syntax highlighting
 syntax enable 
 if has("autocmd")
-	" Enable filetype detection
 	filetype plugin indent on
-
 	" Restore cursor position
 	autocmd BufReadPost *
 		\ if line("'\"") > 1 && line("'\"") <= line("$") |
@@ -33,9 +39,14 @@ endif
 set hlsearch
 nmap <silent> <leader>h :set hlsearch!<CR>
 
+" WINDOWS
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 " Useful for auto setting hidden buffers
 set hidden
-
 
 " Load NERDTree by default for directory
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -44,6 +55,16 @@ map <C-n><C-t> :NERDTreeToggle<CR>
 " COLORS and Theme
 set background=dark
 colorscheme solarized 
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+
 
 " Always show line numbers
 set nu
