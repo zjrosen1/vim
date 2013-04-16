@@ -2,7 +2,7 @@
 "#                        #
 "#   My WIP .vimrc        #
 "#   Author: Zack Rosen   #
-"#   Updated: 9/14/13     #
+"#   Updated: 9/16/13     #
 "#                        #
 "##########################
 
@@ -12,13 +12,12 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
 
-" Set global mapleader
-let mapleader = ","
-
-" Set encoding
-set encoding=utf-8
+let mapleader = ","		" Set global mapleader
+set encoding=utf-8		" Set encoding
 set nocompatible
 set noswapfile
+set hidden				" Useful for auto setting hidden buffers
+set nu					" Always show line numbers
 
 " Auto source vimrc on save & update vimrc on the fly with ,v
 if has("autocmd")
@@ -45,14 +44,21 @@ endif
 set hlsearch
 nmap <silent> <leader>h :set hlsearch!<CR>
 
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
+
 " WINDOWS
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Useful for auto setting hidden buffers
-set hidden
 
 " Load NERDTree by default for directory
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -70,10 +76,14 @@ function! <SID>SynStack()
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+if exists(":Tabularize")
+	nmap <Leader>a= :Tabularize /=<CR>
+	vmap <Leader>a= :Tabularize /=<CR>
+	nmap <Leader>a: :Tabularize /:\zs<CR>
+	vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
 
 
-" Always show line numbers
-set nu
 
 " :Wrap to wrap lines
 command! -nargs=* Wrap set wrap linebreak nolist
