@@ -25,23 +25,20 @@ if has("autocmd")
 endif
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
-" Enable syntax highlighting
-syntax enable 
+syntax enable			" Enable syntax highlighting
 if has("autocmd")
 	filetype plugin indent on
-	" Restore cursor position
+						" Restore cursor position
 	autocmd BufReadPost *
 		\ if line("'\"") > 1 && line("'\"") <= line("$") |
 		\   exe "normal! g`\"" |
 		\ endif
 endif
 if &t_Co > 2 || has("gui_running")
-	" Enable syntax highlighting
-	syntax on
+	syntax on			" Enable syntax highlighting
 endif
    
-" Highlight when searching | ,h to toggle
-set hlsearch
+set hlsearch			" Highlight when searching | ,h to toggle
 nmap <silent> <leader>h :set hlsearch!<CR>
 
 " Bubble single lines
@@ -112,13 +109,10 @@ endfunction
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
 
-" Shortcut to rapidly toggle `set list` 
-nmap <Leader>l :set list!<CR>
-" Use new symbols for tabstops and EOLs 
-set listchars=tab:▸\ ,eol:¬
+nmap <Leader>l :set list!<CR>		" Shortcut to rapidly toggle `set list` 
+set listchars=tab:▸\ ,eol:¬			" Use new symbols for tabstops and EOLs 
 
-" Default tab stops
-set ts=4 sts=4 sw=4 noexpandtab
+set ts=4 sts=4 sw=4 noexpandtab		" Default tab stops
 
 " Set tabstop, softtabstop and shiftwidth to the same value
 command! -nargs=* Stab call Stab()
