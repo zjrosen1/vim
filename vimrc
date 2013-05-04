@@ -16,6 +16,7 @@ let mapleader = ","		" Set global mapleader
 set encoding=utf-8		" Set encoding
 set nocompatible
 set noswapfile
+filetype indent on
 set hidden				" Useful for auto setting hidden buffers
 set nu					" Always show line numbers
 
@@ -38,7 +39,7 @@ if &t_Co > 2 || has("gui_running")
 	syntax on			" Enable syntax highlighting
 endif
    
-set hlsearch			" Highlight when searching | ,h to toggle
+" set hlsearch			" Highlight when searching | ,h to toggle
 nmap <silent> <leader>h :set hlsearch!<CR>
 
 " Bubble single lines
@@ -90,7 +91,7 @@ nmap <silent> <leader>s :set spell!<CR>
 
 " Indent Mapping
 nmap <D-[> <<
-nmap <D-]> <<
+nmap <D-]> >>
 vmap <D-[> <gv
 vmap <D-[> >gv
 
