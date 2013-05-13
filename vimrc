@@ -20,6 +20,9 @@ filetype indent on
 set hidden				" Useful for auto setting hidden buffers
 set nu					" Always show line numbers
 
+nmap <leader>g :Git add .<CR>
+nmap <leader>c :Gcommit<CR>
+nmap <leader>p :Git push<CR>
 " Auto source vimrc on save & update vimrc on the fly with ,v
 if has("autocmd")
 	autocmd BufWritePost vimrc source $MYVIMRC
