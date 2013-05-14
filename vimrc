@@ -20,6 +20,7 @@ filetype indent on
 set hidden				" Useful for auto setting hidden buffers
 set nu					" Always show line numbers
 
+"Git Commands
 nmap <leader>g :Git add .<CR>
 nmap <leader>c :Gcommit<CR>
 nmap <leader>p :Git push<CR>
