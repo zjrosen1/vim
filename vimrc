@@ -1,4 +1,3 @@
-"HEAD {{{1
 "##########################
 "#                        #
 "#   My WIP .vimrc        #
@@ -8,6 +7,8 @@
 "##########################
 
 " vim: setfoldmethod=marker
+
+"HEAD {{{1
 
 " Plug-in Manager
 call pathogen#runtime_append_all_bundles()
@@ -60,6 +61,8 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " Mappings {{{1
+" Folding {{{2
+nnoremap <Space> za
 " Highlighting  ,h {{{2
 nmap <silent> <leader>h :set hlsearch!<CR>
 
