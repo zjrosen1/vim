@@ -1,3 +1,5 @@
+"vim: set foldmethod=marker
+ 
 "##########################
 "#                        #
 "#   My WIP .vimrc        #
@@ -5,8 +7,6 @@
 "#   Updated: 5/15/13     #
 "#                        #
 "##########################
-
-" vim: setfoldmethod=marker
 
 "HEAD {{{1
 
