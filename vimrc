@@ -24,6 +24,12 @@ filetype indent on
 syntax enable			" Enable syntax highlighting
 set hidden				" Useful for auto setting hidden buffers
 set encoding=utf-8
+set laststatus=2		" Always show the statusline
+set t_Co=256			" Explicitly tell Vim that the terminal supports 256 colors
+
+" python from powerline.vim import setup as powerline_setup
+" python powerline_setup()
+" python del powerline_setup
 
 autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
 map <C-n><C-t> :NERDTreeToggle<CR>
