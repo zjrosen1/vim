@@ -1,10 +1,10 @@
 # Media Query Snippets
 snippet bb
-	@include breakpoint(baby-bear) {
+	@include bp(baby-bear) {
 		${1}
 	}
 snippet mb
-	@include breakpoint(mama-bear) {
+	@include bp(mama-bear) {
 		${1}
 	}
 snippet ma
@@ -21,3 +21,11 @@ snippet fl
 #Width 100%
 snippet w100
 	width: 100%;
+snippet w25
+	width: 25%;
+snippet w50
+	width: 50%;
+snippet hf
+	&:hover, &:focus {
+		${1}
+	}
