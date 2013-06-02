@@ -15,6 +15,5 @@
     git add .
     git commit -m "Install Fugitive.vim bundle as a submodule."
 
-
 ## Upgrading all bundled plugins
     git submodule foreach git pull origin master

@@ -37,7 +37,7 @@ set ts=4 sts=4 sw=4 noexpandtab " Default tab stops
 
 " Colors and Theme {{{2
 set background=dark
-colorscheme solarized 
+colorscheme badwolf 
 
 "Git {{{1
 nmap <leader>g :Git add .<CR>
