@@ -113,7 +113,7 @@ endif
 " Extras for now {{{2
 nmap <Leader>l :set list!<CR>		" Shortcut to rapidly toggle `set list` 
 
-inoremap { {<cr>}<C-o>O
+autocmd FileType scss inoremap { {<cr>}<C-o>O
 autocmd FileType scss inoremap : : ;<esc>i
 autocmd FileType scss inoremap : : ;<esc>i
 
