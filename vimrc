@@ -121,7 +121,7 @@ endif
 nmap <Leader>l :set list!<CR>		" Shortcut to rapidly toggle `set list` 
 nmap <Leader>" viwS"
 
-inoremap { {<cr>}<C-o>O
+autocmd FileType scss inoremap { {<cr>}<C-o>O
 autocmd FileType scss inoremap : : ;<esc>i
 autocmd FileType scss inoremap : : ;<esc>i
 
