@@ -15,25 +15,32 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
 
-let mapleader = ","		" Set global mapleader
+let mapleader = ","							" Set global mapleader
 
 " Prefrences {{{1
 set nocompatible
 set noswapfile
+set autoindent
 filetype indent on
-syntax enable			" Enable syntax highlighting
-set hidden				" Useful for auto setting hidden buffers
-set encoding=utf-8
-set laststatus=2		" Always show the statusline
-set t_Co=256			" Explicitly tell Vim that the terminal supports 256 colors
-
-autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
-map <C-n><C-t> :NERDTreeToggle<CR>
+syntax enable										" Enable syntax highlighting
+set hidden											" Useful for auto setting hidden buffers
 
 "Appearance {{{2
 set number                      " Always show line numbers
-set listchars=tab:▸\ ,eol:¬     " Use new symbols for tabstops and EOLs
-set ts=4 sts=4 sw=4 noexpandtab " Default tab stops
+set listchars=tab:▸\ ,eol:¬     " Use new symbols for tabstops and EOLs		
+set listchars+=trail:·
+set ts=2 sts=2 sw=2 noexpandtab " Default tab stops
+set showcmd											" Shows incomplete command
+set vb noeb											" Turn on visual bell and remove error beeps
+set nosol												" Prevent cursor from jumping to start of line
+set wildmenu
+set wildmode=longest:full,full
+set encoding=utf-8
+set laststatus=2								" Always show the statusline
+set t_Co=256										" Explicitly tell Vim that the terminal supports 256 colors
+
+autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
+map <C-n><C-t> :NERDTreeToggle<CR>
 
 " Colors and Theme {{{2
 set background=dark
@@ -112,6 +119,7 @@ if exists(":Tabularize")
 endif
 " Extras for now {{{2
 nmap <Leader>l :set list!<CR>		" Shortcut to rapidly toggle `set list` 
+nmap <Leader>" viwS"
 
 inoremap { {<cr>}<C-o>O
 autocmd FileType scss inoremap : : ;<esc>i
@@ -136,6 +144,16 @@ endfunction
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
 
+" Prune the arglist for matches
+command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
+function! QuickfixFilenames()
+"	  Building a hash ensures we get each buffer only once
+		let buffer_numbers = { }
+		for quickfix_item in getqflist()
+			let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+		endfor
+		return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+	endfunction
 
 " Set tabstop, softtabstop and shiftwidth to the same value {{{2
 command! -nargs=* Stab call Stab()
