@@ -4,7 +4,7 @@
 "#                        #
 "#   My WIP .vimrc        #
 "#   Author: Zack Rosen   #
-"#   Updated: 5/15/13     #
+"#   Updated: 8/16/13     #
 "#                        #
 "##########################
 
@@ -15,29 +15,32 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
 
-let mapleader = ","							" Set global mapleader
+let mapleader =","								 " Set global mapleader
 
 " Prefrences {{{1
 set nocompatible
 set noswapfile
 set autoindent
 filetype indent on
-syntax enable										" Enable syntax highlighting
-set hidden											" Useful for auto setting hidden buffers
+syntax enable                       " Enable syntax highlighting
+set hidden                          " Useful for auto setting hidden buffers
+set gdefault                        " Add the g flag to search/replace by default
+set incsearch                       " Highlight dynamically as pattern is typed
+set nostartofline                   " Don't reset cursor to start of line when moving around
 
-"Appearance {{{2
-set number                      " Always show line numbers
-set listchars=tab:▸\ ,eol:¬     " Use new symbols for tabstops and EOLs		
-set listchars+=trail:·
-set ts=2 sts=2 sw=2 noexpandtab " Default tab stops
-set showcmd											" Shows incomplete command
-set vb noeb											" Turn on visual bell and remove error beeps
-set nosol												" Prevent cursor from jumping to start of line
-set wildmenu
+" Appearance {{{2
+set number                          " Always show line numbers
+set listchars=tab:▸\ ,trail:·,eol:¬ " Use new symbols for tabstops and EOLs
+set ts=2 sts=2 sw=2 noexpandtab     " Default tab stops
+set showcmd                         " Shows incomplete command
+set vb noeb                         " Turn on visual bell and remove error beeps
+set nosol                           " Prevent cursor from jumping to start of line
+set wildmenu                        " Enhance command-line completion
 set wildmode=longest:full,full
 set encoding=utf-8
-set laststatus=2								" Always show the statusline
-set t_Co=256										" Explicitly tell Vim that the terminal supports 256 colors
+set cursorline                      " Highlight current line
+set laststatus=2                    " Always show the statusline
+set t_Co=256                        " Explicitly tell Vim that the terminal supports 256 colors
 
 autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
 map <C-n><C-t> :NERDTreeToggle<CR>
