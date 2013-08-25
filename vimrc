@@ -1,4 +1,4 @@
-"vim: set foldmethod=marker
+" vim: set foldmethod=marker
  
 "##########################
 "#                        #
@@ -24,6 +24,7 @@ set autoindent
 filetype indent on
 syntax enable										" Enable syntax highlighting
 set hidden											" Useful for auto setting hidden buffers
+set nowrap
 
 "Appearance {{{2
 set number                      " Always show line numbers
@@ -77,6 +78,12 @@ nmap <silent> <leader>h :set hlsearch!<CR>
 
 " Update vimrc ,v {{{2
 nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" Update vimrc ,v {{{2
+command! -nargs=* Snips call Snips()
+function! Snips()
+	execute	:tabedit $MYVIMRC<CR>
+endfunction
 " Bubble single lines {{{2
 nmap <C-Up> [e
 nmap <C-Down> ]e
