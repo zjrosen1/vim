@@ -27,6 +27,9 @@ set hidden                          " Useful for auto setting hidden buffers
 set gdefault                        " Add the g flag to search/replace by default
 set incsearch                       " Highlight dynamically as pattern is typed
 set nostartofline                   " Don't reset cursor to start of line when moving around
+command W w													" Remap :W to :w
+nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
+nnoremap <C-y> 3<C-y>
 
 " Appearance {{{2
 set number                          " Always show line numbers
@@ -35,6 +38,10 @@ set ts=2 sts=2 sw=2 noexpandtab     " Default tab stops
 set showcmd                         " Shows incomplete command
 set vb noeb                         " Turn on visual bell and remove error beeps
 set nosol                           " Prevent cursor from jumping to start of line
+set splitbelow										  " New window goes below
+set splitright										  " New windows goes right
+set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
+set wildignore+=*/smarty/*,*/vendor/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*
 set wildmenu                        " Enhance command-line completion
 set wildmode=longest:full,full
 set encoding=utf-8
@@ -50,9 +57,9 @@ set background=dark
 colorscheme badwolf 
 
 "Git {{{1
-nmap <leader>g :Git add .<CR>
-nmap <leader>c :Gcommit<CR>
-nmap <leader>p :Git push<CR>
+nmap <leader>ga :Git add .<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gp :Git push<CR>
 
 " Auto Commands {{{1
 " Auto source vimrc on save  {{{2
@@ -81,7 +88,7 @@ nmap <silent> <leader>h :set hlsearch!<CR>
 " Update vimrc ,v {{{2
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
-" Update vimrc ,v {{{2
+" Update snippets {{{2
 command! -nargs=* Snips call Snips()
 function! Snips()
 	execute	:tabedit $MYVIMRC<CR>
@@ -119,16 +126,10 @@ function! <SID>SynStack()
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" Tabularize {{{2
-if exists(":Tabularize")
-	nmap <Leader>a= :Tabularize /=<CR>
-	vmap <Leader>a= :Tabularize /=<CR>
-	nmap <Leader>a: :Tabularize /:\zs<CR>
-	vmap <Leader>a: :Tabularize /:\zs<CR>
-endif
 " Extras for now {{{2
 nmap <Leader>l :set list!<CR>		" Shortcut to rapidly toggle `set list` 
 nmap <Leader>" viwS"
+nnoremap Y y$										" Yank to end of line with Y
 
 autocmd FileType scss inoremap { {<cr>}<C-o>O
 autocmd FileType scss inoremap : : ;<esc>i
@@ -191,3 +192,17 @@ function! SummarizeTabs()
 		echohl None
 	endtry
 endfunction
+" Plugins {{{1
+" CtrlP {{{2
+let g:ctrlp_match_window_bottom = 0 " Show at top of window
+let g:ctrlp_working_path_mode = 2 " Smart path mode
+let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
+let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
+let g:ctrlp_split_window = 1 " <CR> = New Tab
+" Tabularize {{{2
+if exists(":Tabularize")
+	nmap <Leader>a= :Tabularize /=<CR>
+	vmap <Leader>a= :Tabularize /=<CR>
+	nmap <Leader>a: :Tabularize /:\zs<CR>
+	vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
