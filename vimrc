@@ -24,7 +24,7 @@ set autoindent
 filetype indent on
 syntax enable										" Enable syntax highlighting
 set hidden											" Useful for auto setting hidden buffers
-set nowrap
+" set nowrap
 
 "Appearance {{{2
 set number                      " Always show line numbers
