@@ -1,5 +1,3 @@
-" vim: set foldmethod=marker
- 
 "##########################
 "#                        #
 "#   My WIP .vimrc        #
@@ -26,6 +24,8 @@ syntax enable                       " Enable syntax highlighting
 set hidden                          " Useful for auto setting hidden buffers
 set gdefault                        " Add the g flag to search/replace by default
 set incsearch                       " Highlight dynamically as pattern is typed
+set ignorecase											" Ignore case when searching
+set smartcase												" Try and be smart about cases
 set nostartofline                   " Don't reset cursor to start of line when moving around
 command W w													" Remap :W to :w
 nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
@@ -36,7 +36,7 @@ set number                          " Always show line numbers
 set listchars=tab:▸\ ,trail:·,eol:¬ " Use new symbols for tabstops and EOLs
 set ts=2 sts=2 sw=2 noexpandtab     " Default tab stops
 set showcmd                         " Shows incomplete command
-set vb noeb                         " Turn on visual bell and remove error beeps
+set novb noeb                       " Turn off visual bell and remove error beeps
 set nosol                           " Prevent cursor from jumping to start of line
 set splitbelow										  " New window goes below
 set splitright										  " New windows goes right
@@ -80,6 +80,14 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " Mappings {{{1
+" Tab Editing {{{2
+" Useful mappings for managing taps
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove<cr>
+
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " Folding {{{2
 nnoremap <Space> za
 " Highlighting  ,h {{{2
