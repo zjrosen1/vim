@@ -27,9 +27,8 @@ set incsearch                       " Highlight dynamically as pattern is typed
 set ignorecase											" Ignore case when searching
 set smartcase												" Try and be smart about cases
 set nostartofline                   " Don't reset cursor to start of line when moving around
-command W w													" Remap :W to :w
-nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
-nnoremap <C-y> 3<C-y>
+"command W w													" Remap :W to :w
+inoremap <tab> <C-n>
 
 " Appearance {{{2
 set number                          " Always show line numbers
@@ -116,6 +115,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Viewport Scrolling {{{2
+nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
+nnoremap <C-y> 3<C-y>
 " Indent Mapping {{{2
 nmap <D-[> <<
 nmap <D-]> >>
@@ -146,6 +148,7 @@ autocmd FileType scss inoremap : : ;<esc>i
 " :Wrap to wrap lines
 command! -nargs=* Wrap set wrap linebreak nolist
 
+nnoremap ; :
 " Functions {{{1
 " Remove trailing white space {{{2
 function! Preserve(command)
