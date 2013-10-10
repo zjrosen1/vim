@@ -27,6 +27,7 @@ set incsearch                       " Highlight dynamically as pattern is typed
 set ignorecase											" Ignore case when searching
 set smartcase												" Try and be smart about cases
 set nostartofline                   " Don't reset cursor to start of line when moving around
+"command W w													" Remap :W to :w
 command W w													" Remap :W to :w
 let g:user_emmet_leader_key = '<c-e>'
 nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
@@ -117,6 +118,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Viewport Scrolling {{{2
+nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
+nnoremap <C-y> 3<C-y>
 " Indent Mapping {{{2
 nmap <D-[> <<
 nmap <D-]> >>
@@ -147,6 +151,7 @@ autocmd FileType scss inoremap : : ;<esc>i
 " :Wrap to wrap lines
 command! -nargs=* Wrap set wrap linebreak nolist
 
+nnoremap ; :
 " Functions {{{1
 " Remove trailing white space {{{2
 function! Preserve(command)
