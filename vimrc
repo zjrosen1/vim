@@ -28,6 +28,7 @@ set ignorecase											" Ignore case when searching
 set smartcase												" Try and be smart about cases
 set nostartofline                   " Don't reset cursor to start of line when moving around
 command W w													" Remap :W to :w
+let g:user_emmet_leader_key = '<c-e>'
 nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
 nnoremap <C-y> 3<C-y>
 
