@@ -28,7 +28,6 @@ set ignorecase											" Ignore case when searching
 set smartcase												" Try and be smart about cases
 set nostartofline                   " Don't reset cursor to start of line when moving around
 "command W w													" Remap :W to :w
-command W w													" Remap :W to :w
 let g:user_emmet_leader_key = '<c-e>'
 nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
 nnoremap <C-y> 3<C-y>
@@ -151,6 +150,7 @@ autocmd FileType scss inoremap : : ;<esc>i
 " :Wrap to wrap lines
 command! -nargs=* Wrap set wrap linebreak nolist
 
+" Not sure about this one quite yet
 nnoremap ; :
 " Functions {{{1
 " Remove trailing white space {{{2
