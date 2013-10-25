@@ -90,7 +90,8 @@ map <leader>tm :tabmove<cr>
 
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " Folding {{{2
-nnoremap <Space> za
+" nnoremap <Space> za TRYING OUT A NEW SPACE ACTION BELOW
+nnoremap <Space> /
 " Highlighting  ,h {{{2
 nmap <silent> <leader>h :set hlsearch!<CR>
 
