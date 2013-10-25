@@ -34,3 +34,9 @@
 [submodule "bundle/rainbow_parens"]
 	path = bundle/rainbow_parens
 	url = https://github.com/kien/rainbow_parentheses.vim
+[submodule "bundle/easy-motion"]
+	path = bundle/easy-motion
+	url = https://github.com/Lokaltog/vim-easymotion
+[submodule "bundle/matchit"]
+	path = bundle/matchit
+	url = https://github.com/edsono/vim-matchit
