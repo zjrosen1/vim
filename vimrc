@@ -19,18 +19,15 @@ let mapleader =","								 " Set global mapleader
 set nocompatible
 set noswapfile
 set autoindent
-filetype indent on
-syntax enable                       " Enable syntax highlighting
+set smartindent
 set hidden                          " Useful for auto setting hidden buffers
+syntax enable                       " Enable syntax highlighting
 set gdefault                        " Add the g flag to search/replace by default
 set incsearch                       " Highlight dynamically as pattern is typed
 set ignorecase											" Ignore case when searching
 set smartcase												" Try and be smart about cases
 set nostartofline                   " Don't reset cursor to start of line when moving around
-"command W w													" Remap :W to :w
-let g:user_emmet_leader_key = '<c-e>'
-nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
-nnoremap <C-y> 3<C-y>
+" command W w													" Remap :W to :w
 
 " Appearance {{{2
 set number                          " Always show line numbers
@@ -38,7 +35,6 @@ set listchars=tab:▸\ ,trail:·,eol:¬ " Use new symbols for tabstops and EOLs
 set ts=2 sts=2 sw=2 noexpandtab     " Default tab stops
 set showcmd                         " Shows incomplete command
 set novb noeb                       " Turn off visual bell and remove error beeps
-set nosol                           " Prevent cursor from jumping to start of line
 set splitbelow										  " New window goes below
 set splitright										  " New windows goes right
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
@@ -50,23 +46,16 @@ set cursorline                      " Highlight current line
 set laststatus=2                    " Always show the statusline
 set t_Co=256                        " Explicitly tell Vim that the terminal supports 256 colors
 
-autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
-map <C-n><C-t> :NERDTreeToggle<CR>
-
 " Colors and Theme {{{2
 set background=dark
 colorscheme badwolf 
 
-"Git {{{1
-nmap <leader>ga :Git add .<CR>
-nmap <leader>gc :Gcommit<CR>
-nmap <leader>gp :Git push<CR>
-
 " Auto Commands {{{1
 " Auto source vimrc on save  {{{2
-if has("autocmd")
-	autocmd BufWritePost vimrc source $MYVIMRC
-endif
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
 
 " Restore cursor position {{{2
 if has("autocmd")
@@ -87,22 +76,18 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove<cr>
-
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
 " Folding {{{2
-" nnoremap <Space> za TRYING OUT A NEW SPACE ACTION BELOW
-nnoremap <Space> /
+nnoremap <Space> za
+" nnoremap <Space> /
+
 " Highlighting  ,h {{{2
 nmap <silent> <leader>h :set hlsearch!<CR>
 
 " Update vimrc ,v {{{2
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
-" Update snippets {{{2
-command! -nargs=* Snips call Snips()
-function! Snips()
-	execute	:tabedit $MYVIMRC<CR>
-endfunction
 " Bubble single lines {{{2
 nmap <C-Up> [e
 nmap <C-Down> ]e
@@ -121,6 +106,7 @@ map <C-l> <C-w>l
 " Viewport Scrolling {{{2
 nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
 nnoremap <C-y> 3<C-y>
+
 " Indent Mapping {{{2
 nmap <D-[> <<
 nmap <D-]> >>
@@ -128,7 +114,7 @@ vmap <D-[> <gv
 vmap <D-[> >gv
 
 " Spell Checking {{{2
-nmap <silent> <leader>s :set spell!<CR> " Toggle spell checking on and off with `,s`
+nmap <leader>c set spell!<CR> " Toggle spell checking on and off with ,s
 
 " Syntax highlighting groups for word under cursor {{{2
 nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -153,6 +139,7 @@ command! -nargs=* Wrap set wrap linebreak nolist
 
 " Not sure about this one quite yet
 nnoremap ; :
+
 " Functions {{{1
 " Remove trailing white space {{{2
 function! Preserve(command)
@@ -207,7 +194,15 @@ function! SummarizeTabs()
 		echohl None
 	endtry
 endfunction
+
 " Plugins {{{1
+"Fugitive Git {{{2
+nmap <leader>ga :Git add .<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gp :Git push<CR>
+" NerdTree {{{2
+autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
+map <C-n><C-t> :NERDTreeToggle<CR>
 " CtrlP {{{2
 let g:ctrlp_match_window_bottom = 0 " Show at top of window
 let g:ctrlp_working_path_mode = 2 " Smart path mode
@@ -228,3 +223,12 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
+let g:Powerline_symbols = 'fancy'
+" Easy-motion {{{2
+" let g:EasyMotion_leader_key = '<Leader>'
+" Emmet {{{2
+let g:user_emmet_leader_key = '<c-e>'
+" Powerline {{{2
+let g:Powerline_symbols = 'compatible' 
+
+" vim: set foldmethod=marker:
