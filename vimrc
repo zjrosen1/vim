@@ -221,6 +221,7 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
+" Powerline {{{2
 let g:Powerline_symbols = 'fancy'
 " Easy-motion {{{2
 " let g:EasyMotion_leader_key = '<Leader>'
