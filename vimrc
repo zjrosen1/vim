@@ -1,21 +1,18 @@
-"##########################
-"#                        #
-"#   My WIP .vimrc        #
-"#   Author: Zack Rosen   #
-"#   Updated: 8/16/13     #
-"#                        #
-"##########################
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                                              "
+"	 	 My WIP .vimrc		Author: Zack Rosen		Update: 10/30/13	 "
+"                                                              "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"HEAD {{{1
+" Pathogen for the win {{{1
 
 " Plug-in Manager
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
 
-let mapleader =","								 " Set global mapleader
-
 " Prefrences {{{1
+let mapleader =","								 " Set global mapleader
 set nocompatible
 set noswapfile
 set autoindent
@@ -27,7 +24,8 @@ set incsearch                       " Highlight dynamically as pattern is typed
 set ignorecase											" Ignore case when searching
 set smartcase												" Try and be smart about cases
 set nostartofline                   " Don't reset cursor to start of line when moving around
-" command W w													" Remap :W to :w
+set modelines=1 
+" command W w												" Remap :W to :w
 
 " Appearance {{{2
 set number                          " Always show line numbers
@@ -229,6 +227,7 @@ let g:Powerline_symbols = 'fancy'
 " Emmet {{{2
 let g:user_emmet_leader_key = '<c-e>'
 " Powerline {{{2
-let g:Powerline_symbols = 'compatible' 
-
+let g:Powerline_symbols = 'fancy' 
+" Modelines {{{1
+set modelines=1 
 " vim: set foldmethod=marker:
