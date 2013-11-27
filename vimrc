@@ -113,7 +113,7 @@ vmap <D-[> <gv
 vmap <D-[> >gv
 
 " Spell Checking {{{2
-nmap <leader>c set spell!<CR> " Toggle spell checking on and off with ,s
+nmap <silent> <leader>s :set spell!<CR>      
 
 " Syntax highlighting groups for word under cursor {{{2
 nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -128,6 +128,9 @@ endfunc
 nmap <Leader>l :set list!<CR>		" Shortcut to rapidly toggle `set list` 
 nmap <Leader>" viwS"
 nnoremap Y y$										" Yank to end of line with Y
+
+nnoremap j gj
+nnoremap k gk
 
 autocmd FileType scss inoremap { {<cr>}<C-o>O
 autocmd FileType scss inoremap : : ;<esc>i
