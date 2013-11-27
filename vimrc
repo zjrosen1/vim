@@ -85,6 +85,7 @@ nmap <silent> <leader>h :set hlsearch!<CR>
 
 " Update vimrc ,v {{{2
 nmap <leader>v :tabedit $MYVIMRC<CR>
+" Update snipmate ,sc {{{2
 nmap <leader>sc :tabedit ~/.vim/bundle/snipmate/snippets<CR>
 
 " Bubble single lines {{{2
