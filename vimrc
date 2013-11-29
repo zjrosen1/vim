@@ -5,7 +5,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Pathogen for the win {{{1
-
 " Plug-in Manager
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -203,6 +202,8 @@ endfunction
 nmap <leader>ga :Git add .<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Git push<CR>
+" Syntastic {{{2
+" let g:syntastic_auto_loc_list = 1
 " NerdTree {{{2
 autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
 map <C-n><C-t> :NERDTreeToggle<CR>
