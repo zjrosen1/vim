@@ -128,8 +128,8 @@ endfunc
 " Extras for now {{{2
 nmap <Leader>l :set list!<CR>		" Shortcut to rapidly toggle `set list` 
 nmap <Leader>" viwS"
+inoremap <C-c> <esc>						" Just smart
 nnoremap Y y$										" Yank to end of line with Y
-
 nnoremap j gj
 nnoremap k gk
 
@@ -204,7 +204,8 @@ nmap <leader>ga :Git add .<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Git push<CR>
 " Syntastic {{{2
-" let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 5
 " NerdTree {{{2
 autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
 map <C-n><C-t> :NERDTreeToggle<CR>
