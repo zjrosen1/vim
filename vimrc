@@ -8,6 +8,7 @@
 " Plug-in Manager
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+call pathogen#infect()
 filetype plugin indent on
 
 " Prefrences {{{1
