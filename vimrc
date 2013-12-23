@@ -1,8 +1,8 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                                              "
-"	 	 My WIP .vimrc		Author: Zack Rosen		Update: 10/30/13	 "
-"                                                              "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"-------------------------
+"	Author: Zack Rosen
+"	Email: zjrosen@gmail.com
+" Info: A solid vimrc
+"-------------------------
 
 " Pathogen for the win {{{1
 " Plug-in Manager
@@ -24,8 +24,7 @@ set incsearch                       " Highlight dynamically as pattern is typed
 set ignorecase											" Ignore case when searching
 set smartcase												" Try and be smart about cases
 set nostartofline                   " Don't reset cursor to start of line when moving around
-set modelines=1 
-" command W w												" Remap :W to :w
+command! W q												" Remap :W to :w
 
 " Appearance {{{2
 set number                          " Always show line numbers
@@ -43,6 +42,7 @@ set encoding=utf-8
 set cursorline                      " Highlight current line
 set laststatus=2                    " Always show the statusline
 set t_Co=256                        " Explicitly tell Vim that the terminal supports 256 colors
+set backspace=indent,eol,start
 
 " Colors and Theme {{{2
 set background=dark
@@ -86,7 +86,7 @@ nmap <silent> <leader>h :set hlsearch!<CR>
 " Update vimrc ,v {{{2
 nmap <leader>v :tabedit $MYVIMRC<CR>
 " Update snipmate ,sc {{{2
-nmap <leader>sc :tabedit ~/.vim/bundle/snipmate/snippets<CR>
+nmap <leader>sc :tabedit /Users/zackrosen/.vim/bundle/vim-snippets/snippets<CR>
 
 " Bubble single lines {{{2
 nmap <C-Up> [e
@@ -137,11 +137,10 @@ autocmd FileType scss inoremap { {<cr>}<C-o>O
 autocmd FileType scss inoremap : : ;<esc>i
 autocmd FileType scss inoremap : : ;<esc>i
 
-" :Wrap to wrap lines
-command! -nargs=* Wrap set wrap linebreak nolist
+" :Wrap to wrap lines command! -nargs=* Wrap set wrap linebreak nolist
 
 " Not sure about this one quite yet
-nnoremap ; :
+" nnoremap ; :
 
 " Functions {{{1
 " Remove trailing white space {{{2
@@ -231,6 +230,8 @@ let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
 " Easy-motion {{{2
 " let g:EasyMotion_leader_key = '<Leader>'
+" MultipleCursors {{{2
+let g:multi_cursor_quit_key='<C-c>'
 " Emmet {{{2
 let g:user_emmet_leader_key = '<c-e>'
 " Powerline {{{2
