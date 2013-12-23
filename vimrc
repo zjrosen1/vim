@@ -84,6 +84,9 @@ command! W w												" Remap :W to :w
 
 nnoremap Y y$												" Yank to end of line with Y
 
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
+
 " Folding {{{2
 nnoremap <Space> za
 " nnoremap <Space> /
@@ -94,8 +97,6 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
-" Visually select the text that was last edited/pasted
-nmap gV `[v`]
 
 " Window Switching {{{2
 map <C-h> <C-w>h
@@ -134,7 +135,7 @@ nmap <silent> <leader>h :set hlsearch!<CR>
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 " Update snipmate -- sc {{{2
-nmap <leader>sc :tabedit /Users/zackrosen/.vim/bundle/vim-snippets/snippets<CR>
+nmap <leader>sc :tabedit ~/.vim/bundle/vim-snippets/snippets<CR>
 
 " Toggle Spell Checking -- s {{{2
 nmap <silent> <leader>s :set spell!<CR>
