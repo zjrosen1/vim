@@ -9,9 +9,9 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 call pathogen#infect()
-filetype plugin indent on
 
 " Prefrences {{{1
+filetype plugin indent on
 let mapleader =","								 " Set global mapleader
 set nocompatible
 set noswapfile
@@ -19,12 +19,19 @@ set autoindent
 set smartindent
 set hidden                          " Useful for auto setting hidden buffers
 syntax enable                       " Enable syntax highlighting
+set nostartofline                   " Don't reset cursor to start of line when moving around
+set ttyfast
+
+" Searching/Moving {{{2
+" nnoremap / /\v
+" vnoremap / /\v
 set gdefault                        " Add the g flag to search/replace by default
 set incsearch                       " Highlight dynamically as pattern is typed
+set hlsearch
 set ignorecase											" Ignore case when searching
 set smartcase												" Try and be smart about cases
-set nostartofline                   " Don't reset cursor to start of line when moving around
-command! W q												" Remap :W to :w
+nnoremap j gj
+nnoremap k gk
 
 " Appearance {{{2
 set number                          " Always show line numbers
@@ -46,7 +53,7 @@ set backspace=indent,eol,start
 
 " Colors and Theme {{{2
 set background=dark
-colorscheme badwolf 
+colorscheme badwolf
 
 " Auto Commands {{{1
 " Auto source vimrc on save  {{{2
@@ -67,26 +74,19 @@ if &t_Co > 2 || has("gui_running")
 	syntax on			" Enable syntax highlighting
 endif
 
+" Save on losing focus {{{2
+au FocusLost * :wa
 " Mappings {{{1
-" Tab Editing {{{2
-" Useful mappings for managing taps
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove<cr>
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+inoremap <C-c> <esc>								" Just smart
+inoremap jj <ESC>										" Thank You Steve
+
+command! W w												" Remap :W to :w
+
+nnoremap Y y$												" Yank to end of line with Y
 
 " Folding {{{2
 nnoremap <Space> za
 " nnoremap <Space> /
-
-" Highlighting  ,h {{{2
-nmap <silent> <leader>h :set hlsearch!<CR>
-
-" Update vimrc ,v {{{2
-nmap <leader>v :tabedit $MYVIMRC<CR>
-" Update snipmate ,sc {{{2
-nmap <leader>sc :tabedit /Users/zackrosen/.vim/bundle/vim-snippets/snippets<CR>
 
 " Bubble single lines {{{2
 nmap <C-Up> [e
@@ -103,18 +103,15 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Viewport Scrolling {{{2
-nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
-nnoremap <C-y> 3<C-y>
-
 " Indent Mapping {{{2
 nmap <D-[> <<
 nmap <D-]> >>
 vmap <D-[> <gv
 vmap <D-[> >gv
 
-" Spell Checking {{{2
-nmap <silent> <leader>s :set spell!<CR>      
+" Viewport Scrolling {{{2
+nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
+nnoremap <C-y> 3<C-y>
 
 " Syntax highlighting groups for word under cursor {{{2
 nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -125,13 +122,44 @@ function! <SID>SynStack()
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+" Fucking F1 {{{2
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+" Leader Mappings {{{1
+" Toggle Highlighting -- h {{{2
+nmap <silent> <leader>h :set hlsearch!<CR>
+
+" Update vimrc -- v OR ev {{{2
+nmap <leader>v :tabedit $MYVIMRC<CR>
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+" Update snipmate -- sc {{{2
+nmap <leader>sc :tabedit /Users/zackrosen/.vim/bundle/vim-snippets/snippets<CR>
+
+" Toggle Spell Checking -- s {{{2
+nmap <silent> <leader>s :set spell!<CR>
+
+" Toggle set list -- l {{{2
+nmap <Leader>l :set list!<CR>
+" Ack -- a {{{2
+nmap <Leader>a :Ack
+" Tab Editing {{{2
+" Useful mappings for managing taps
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove<cr>
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
 " Extras for now {{{2
-nmap <Leader>l :set list!<CR>		" Shortcut to rapidly toggle `set list` 
+nnoremap <leader>ft Vatzf
+
+nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
+
+" like gv but for pasted text
+" nnoremap <leader>v V`]
+
 nmap <Leader>" viwS"
-inoremap <C-c> <esc>						" Just smart
-nnoremap Y y$										" Yank to end of line with Y
-nnoremap j gj
-nnoremap k gk
 
 autocmd FileType scss inoremap { {<cr>}<C-o>O
 autocmd FileType scss inoremap : : ;<esc>i
@@ -141,6 +169,9 @@ autocmd FileType scss inoremap : : ;<esc>i
 
 " Not sure about this one quite yet
 " nnoremap ; :
+
+" Control space to command mode
+nnoremap <Nul> :
 
 " Functions {{{1
 " Remove trailing white space {{{2
@@ -235,7 +266,7 @@ let g:multi_cursor_quit_key='<C-c>'
 " Emmet {{{2
 let g:user_emmet_leader_key = '<c-e>'
 " Powerline {{{2
-let g:Powerline_symbols = 'fancy' 
+let g:Powerline_symbols = 'fancy'
 " Modelines {{{1
-set modelines=1 
+set modelines=1
 " vim: set foldmethod=marker:
