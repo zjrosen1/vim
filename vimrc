@@ -27,7 +27,7 @@ set ttyfast
 " vnoremap / /\v
 set gdefault                        " Add the g flag to search/replace by default
 set incsearch                       " Highlight dynamically as pattern is typed
-set hlsearch
+" set hlsearch
 set ignorecase											" Ignore case when searching
 set smartcase												" Try and be smart about cases
 nnoremap j gj
@@ -86,6 +86,14 @@ nnoremap Y y$												" Yank to end of line with Y
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
+
+" Not sure about this one quite yet
+ nnoremap ; :
+
+" Control space to command mode
+nnoremap <Nul> :
+
+" :Wrap to wrap lines command! -nargs=* Wrap set wrap linebreak nolist
 
 " Folding {{{2
 nnoremap <Space> za
@@ -157,22 +165,11 @@ nnoremap <leader>ft Vatzf
 
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
+nmap <Leader>" viwS"
+
 " like gv but for pasted text
 " nnoremap <leader>v V`]
 
-nmap <Leader>" viwS"
-
-autocmd FileType scss inoremap { {<cr>}<C-o>O
-autocmd FileType scss inoremap : : ;<esc>i
-autocmd FileType scss inoremap : : ;<esc>i
-
-" :Wrap to wrap lines command! -nargs=* Wrap set wrap linebreak nolist
-
-" Not sure about this one quite yet
-" nnoremap ; :
-
-" Control space to command mode
-nnoremap <Nul> :
 
 " Functions {{{1
 " Remove trailing white space {{{2
@@ -230,29 +227,30 @@ function! SummarizeTabs()
 endfunction
 
 " Plugins {{{1
+" Easy-motion {{{2
+" let g:EasyMotion_leader_key = '<Leader>'
+" Emmet {{{2
+let g:user_emmet_leader_key = '<c-e>'
 "Fugitive Git {{{2
 nmap <leader>ga :Git add -A<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Git push<CR>
-" Syntastic {{{2
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_loc_list_height = 5
-" NerdTree {{{2
-autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
-map <C-n><C-t> :NERDTreeToggle<CR>
+" CoffeeScript {{{2
+nnoremap <leader>cw :CoffeeWatch<cr>
+nnoremap <leader>cr :CoffeeRun<cr>
 " CtrlP {{{2
 let g:ctrlp_match_window_bottom = 0 " Show at top of window
 let g:ctrlp_working_path_mode = 2 " Smart path mode
 let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 let g:ctrlp_split_window = 1 " <CR> = New Tab
-" Tabularize {{{2
-if exists(":Tabularize")
-	nmap <Leader>a= :Tabularize /=<CR>
-	vmap <Leader>a= :Tabularize /=<CR>
-	nmap <Leader>a: :Tabularize /:\zs<CR>
-	vmap <Leader>a: :Tabularize /:\zs<CR>
-endif
+" MultipleCursors {{{2
+let g:multi_cursor_quit_key='<C-c>'
+" NerdTree {{{2
+autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
+map <C-n><C-t> :NERDTreeToggle<CR>
+" Powerline {{{2
+let g:Powerline_symbols = 'fancy'
 " Rainbow Parens {{{2
 nmap <leader>r :RainbowParenthesesToggle<CR>
 au Syntax * RainbowParenthesesLoadRound
@@ -260,14 +258,16 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
-" Easy-motion {{{2
-" let g:EasyMotion_leader_key = '<Leader>'
-" MultipleCursors {{{2
-let g:multi_cursor_quit_key='<C-c>'
-" Emmet {{{2
-let g:user_emmet_leader_key = '<c-e>'
-" Powerline {{{2
-let g:Powerline_symbols = 'fancy'
+" Syntastic {{{2
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 5
+" Tabularize {{{2
+if exists(":Tabularize")
+	nmap <Leader>a= :Tabularize /=<CR>
+	vmap <Leader>a= :Tabularize /=<CR>
+	nmap <Leader>a: :Tabularize /:\zs<CR>
+	vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
 " Modelines {{{1
 set modelines=1
 " vim: set foldmethod=marker:
