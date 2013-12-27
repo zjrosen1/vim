@@ -88,10 +88,10 @@ nnoremap Y y$												" Yank to end of line with Y
 nmap gV `[v`]
 
 " Not sure about this one quite yet
- nnoremap ; :
+nnoremap ; :
 
-" Control space to command mode
-nnoremap <Nul> :
+" Control space to search mode
+nnoremap <C-Nul> /
 
 " :Wrap to wrap lines command! -nargs=* Wrap set wrap linebreak nolist
 
