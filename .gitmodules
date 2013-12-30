@@ -76,3 +76,6 @@
 [submodule "bundle/multiple-cursors"]
 	path = bundle/multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "bundle/markdown-mode"]
+	path = bundle/markdown-mode
+	url = https://github.com/plasticboy/vim-markdown.git
