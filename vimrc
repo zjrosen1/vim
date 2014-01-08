@@ -91,7 +91,7 @@ nmap gV `[v`]
 nnoremap ; :
 
 " Control space to search mode
-nnoremap <C-Nul> /
+nnoremap <Nul> /
 
 " :Wrap to wrap lines command! -nargs=* Wrap set wrap linebreak nolist
 
