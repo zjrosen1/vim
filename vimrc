@@ -80,6 +80,7 @@ au FocusLost * :wa
 inoremap <C-c> <esc>								" Just smart
 inoremap jj <ESC>										" Thank You Steve
 
+
 command! W w												" Remap :W to :w
 
 nnoremap Y y$												" Yank to end of line with Y
@@ -88,12 +89,23 @@ nnoremap Y y$												" Yank to end of line with Y
 nmap gV `[v`]
 
 " Not sure about this one quite yet
-nnoremap ; :
+" nnoremap ; :
 
+nmap fq :q!<CR>
 " Control space to search mode
 nnoremap <Nul> /
 
 " :Wrap to wrap lines command! -nargs=* Wrap set wrap linebreak nolist
+
+" Filetype {{{2
+nmap _ht :set ft=html<CR>
+nmap _ph :set ft=php<CR>
+nmap _py :set ft=python<CR>
+nmap _rb :set ft=ruby<CR>
+nmap _js :set ft=javascript<CR>
+nmap _zs :set ft=zsh<CR>
+nmap _zs :set ft=mkd<CR>
+nmap _vi :set ft=vim<CR>
 
 " Folding {{{2
 nnoremap <Space> za
