@@ -97,6 +97,8 @@ nnoremap <Nul> /
 
 " :Wrap to wrap lines command! -nargs=* Wrap set wrap linebreak nolist
 
+" Toggle errors
+nmap <leader>st :SyntasticToggleMode<cr>
 " Filetype {{{2
 nmap _ht :set ft=html<CR>
 nmap _ph :set ft=php<CR>
