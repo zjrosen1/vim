@@ -82,3 +82,6 @@
 	path = bundle/smartinput
 	url = https://github.com/kana/vim-smartinput.git
 	ignore = untracked
+[submodule "bundle/exchange"]
+	path = bundle/exchange
+	url = git://github.com/tommcdo/vim-exchange.git

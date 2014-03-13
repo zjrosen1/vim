@@ -34,7 +34,7 @@ nnoremap j gj
 nnoremap k gk
 
 " Appearance {{{2
-set number                          " Always show line numbers
+" set number                          " Always show line numbers
 set listchars=tab:▸\ ,trail:·,eol:¬ " Use new symbols for tabstops and EOLs
 set ts=2 sts=2 sw=2 noexpandtab     " Default tab stops
 set showcmd                         " Shows incomplete command
@@ -145,6 +145,29 @@ function! <SID>SynStack()
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+" Awesome fucking pasting {{{2
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
 " Fucking F1 {{{2
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
@@ -175,9 +198,14 @@ map <leader>tm :tabmove<cr>
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Extras for now {{{2
+"Fold an html container
 nnoremap <leader>ft Vatzf
 
+"I think this sorts css
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
+
+" Alphabetically sort CSS properties in file with :SortCSS
+" :command! SortCSS :g#\({\n\)\@<=#.,/}/sort
 
 nmap <Leader>" viwS"
 
@@ -247,7 +275,7 @@ endfunction
 let g:user_emmet_leader_key = '<c-e>'
 "Fugitive Git {{{2
 nmap <leader>ga :Git add -A<CR>
-nmap <leader>gc :Gcommit<CR>
+nmap <leader>gc :Gcommit -a<CR>
 nmap <leader>gp :Git push<CR>
 " CoffeeScript {{{2
 nnoremap <leader>cw :CoffeeWatch<cr>
@@ -257,7 +285,7 @@ let g:ctrlp_match_window_bottom = 0 " Show at top of window
 let g:ctrlp_working_path_mode = 2 " Smart path mode
 let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
-let g:ctrlp_split_window = 1 " <CR> = New Tab
+let g:ctrlp_split_window = 2 " <CR> = New Tab
 " MultipleCursors {{{2
 let g:multi_cursor_quit_key='<C-c>'
 " Markdown {{{2
