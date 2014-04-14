@@ -99,6 +99,12 @@ nnoremap <Nul> /
 
 " Toggle errors
 nmap <leader>st :SyntasticToggleMode<cr>
+
+" Remap split window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 " Filetype {{{2
 nmap _ht :set ft=html<CR>
 nmap _ph :set ft=php<CR>
