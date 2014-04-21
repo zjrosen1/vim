@@ -264,6 +264,8 @@ let g:ctrlp_working_path_mode = 2 " Smart path mode
 let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 let g:ctrlp_split_window = 1 " <CR> = New Tab
+let g:ctrlp_max_files = 0 " Allow full caching of big projects
+let g:ctrlp_max_depth = 40 " Allow full caching of deep files
 " MultipleCursors {{{2
 let g:multi_cursor_quit_key='<C-c>'
 " Markdown {{{2
