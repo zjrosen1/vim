@@ -36,7 +36,8 @@ nnoremap k gk
 " Appearance {{{2
 set number                          " Always show line numbers
 set listchars=tab:▸\ ,trail:·,eol:¬ " Use new symbols for tabstops and EOLs
-set ts=2 sts=2 sw=2 noexpandtab     " Default tab stops
+set ts=2 sts=2 sw=2 expandtab     " Default tab stops
+set list                            " Display whitespace"
 set showcmd                         " Shows incomplete command
 set novb noeb                       " Turn off visual bell and remove error beeps
 set splitbelow										  " New window goes below
