@@ -106,7 +106,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <leader>w <C-w>
 " Filetype {{{2
 nmap _ht :set ft=html<CR>
 nmap _ph :set ft=php<CR>
@@ -170,8 +169,6 @@ nmap <leader>sc :tabedit ~/.vim/bundle/vim-snippets/snippets<CR>
 " Toggle Spell Checking -- s {{{2
 nmap <silent> <leader>s :set spell!<CR>
 
-" Toggle set list -- l {{{2
-nmap <Leader>l :set list!<CR>
 " Ack -- a {{{2
 nmap <Leader>a :Ack
 " Tab Editing {{{2
@@ -189,6 +186,12 @@ nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
 nmap <Leader>" viwS"
 
+nnoremap <leader>w <C-w>
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
+nnoremap <Leader>tr :NERDTreeToggle<cr>
 " like gv but for pasted text
 " nnoremap <leader>v V`]
 
@@ -274,7 +277,6 @@ let g:multi_cursor_quit_key='<C-c>'
 let g:vim_markdown_initial_foldlevel=1
 " NerdTree {{{2
 autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
-map <C-l><C-l> :NERDTreeToggle<CR>
 " Powerline {{{2
 let g:Powerline_symbols = 'fancy'
 " Rainbow Parens {{{2
