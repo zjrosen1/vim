@@ -191,7 +191,7 @@ nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
-nnoremap <Leader>tr :NERDTreeToggle<cr>
+nnoremap <Leader>nt :NERDTreeToggle<cr>
 " like gv but for pasted text
 " nnoremap <leader>v V`]
 
