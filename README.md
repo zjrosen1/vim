@@ -26,7 +26,7 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     --- | ---
     `j``j` | exit insert mode
     `,``n``t` | open file browser (NERDTree)
-    `ctrl` + `p` | fuzzy match file paths in current directory (files open with a vertical split by default)
+    `ctrl` + `p` | fuzzy match file paths in current directory (files open in current window by default)
     `,``,``w` | easy motion forward by word
     `,``,``b` | easy motion backward by word
     `,``,``j` | easy motion down by line
