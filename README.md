@@ -36,4 +36,11 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``w``j` | move the cursor down one window
     `,``w``k` | move the cursor up one window
     `,``w``h` | move the cursor left one window
+    `,``w``o` | close all windows but the current one
     `,``w``l` | move the cursor right one window
+    `,``t``t` | open new tab
+    `,``t``n` | open the next tab
+    `,``t``p` | open the previous tab
+    `,``t``f` | open the first tab
+    `,``t``l` | open the last tab
+    `,``t``o` | close all tabs but the current one

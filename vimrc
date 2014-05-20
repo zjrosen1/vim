@@ -173,10 +173,14 @@ nmap <silent> <leader>s :set spell!<CR>
 nmap <Leader>a :Ack
 " Tab Editing {{{2
 " Useful mappings for managing taps
-map <leader>tn :tabnew<cr>
+map <leader>tt :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprevious<cr>
+map <leader>tf :tabfirst<cr>
+map <leader>tl :tablast<cr>
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Extras for now {{{2
