@@ -85,3 +85,6 @@
 [submodule "bundle/exchange"]
 	path = bundle/exchange
 	url = git://github.com/tommcdo/vim-exchange.git
+[submodule "bundle/vim-rails"]
+	path = bundle/vim-rails
+	url = https://github.com/tpope/vim-rails.git
