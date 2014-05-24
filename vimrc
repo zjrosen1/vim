@@ -55,6 +55,10 @@ set backspace=indent,eol,start
 set background=dark
 colorscheme badwolf
 
+" Do I need this
+if &t_Co > 2 || has("gui_running")
+	syntax on			" Enable syntax highlighting
+endif
 " Auto Commands {{{1
 " Auto source vimrc on save  {{{2
 augroup reload_vimrc " {
@@ -70,15 +74,31 @@ if has("autocmd")
 		\   exe "normal! g`\"" |
 		\ endif
 endif
-if &t_Co > 2 || has("gui_running")
-	syntax on			" Enable syntax highlighting
-endif
 
 " Save on losing focus {{{2
 au FocusLost * :wa
+" Clean up nasty wysiwig html {{{2
+" Install pandoc first
+" https://code.google.com/p/pandoc/downloads/list
+
+function! FormatprgLocal(filter)
+if !empty(v:char)
+  return 1
+else
+  let l:command = v:lnum.','.(v:lnum+v:count-1).'!'.a:filter
+  echo l:command
+  execute l:command
+endif
+endfunction
+
+if has("autocmd")
+  let pandoc_pipeline  = "pandoc --from=html --to=markdown"
+  let pandoc_pipeline .= " | pandoc --from=markdown --to=html"
+  autocmd FileType html setlocal formatexpr=FormatprgLocal(pandoc_pipeline)
+endif
 " Mappings {{{1
-inoremap <C-c> <esc>								" Just smart
-inoremap jj <ESC>										" Thank You Steve
+inoremap <C-c> <ESC>								" Just smart
+inoremap jj <ESC>:w<CR>
 
 
 command! W w												" Remap :W to :w
@@ -188,7 +208,7 @@ nmap <silent> <leader>s :set spell!<CR>
 " Toggle set list -- l {{{2
 nmap <Leader>l :set list!<CR>
 " Ack -- a {{{2
-nmap <Leader>a :Ack
+nmap <Leader>a :Ack 
 " Tab Editing {{{2
 " Useful mappings for managing taps
 map <leader>tn :tabnew<cr>
@@ -214,6 +234,7 @@ nmap <Leader>" viwS"
 
 
 " Functions {{{1
+
 " Remove trailing white space {{{2
 function! Preserve(command)
 	" Preparation: save last search, and cursor position.
