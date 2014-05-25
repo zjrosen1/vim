@@ -91,3 +91,6 @@
 [submodule "bundle/endwise"]
 	path = bundle/endwise
 	url = https://github.com/tpope/vim-endwise.git
+[submodule "bundle/vim-webapi"]
+	path = bundle/vim-webapi
+	url = https://github.com/mattn/webapi-vim.git
