@@ -276,6 +276,7 @@ let g:ctrlp_split_window = 0 " Prefer windows to tabs
 let g:ctrlp_max_files = 0 " Allow full caching of big projects
 let g:ctrlp_max_depth = 40 " Allow full caching of deep files
 " MultipleCursors {{{2
+let g:multi_cursor_next_key='<C-m>'
 let g:multi_cursor_quit_key='<C-c>'
 " Markdown {{{2
 let g:vim_markdown_initial_foldlevel=1
