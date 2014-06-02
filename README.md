@@ -35,11 +35,11 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``,``k` | easy motion up by line
     `,``w``s` | split window horizontally
     `,``w``v` | split window vertically
-    `,``w``j` | move the cursor down one window
-    `,``w``k` | move the cursor up one window
-    `,``w``h` | move the cursor left one window
+    `,``w``j` or `ctrl` + `j` | move the cursor down one window
+    `,``w``k` or `ctrl` + `k` | move the cursor up one window
+    `,``w``h` or `ctrl` + `h` | move the cursor left one window
+    `,``w``l` or `ctrl` + `l` | move the cursor right one window
     `,``w``o` | close all windows but the current one
-    `,``w``l` | move the cursor right one window
     `,``t``t` | open new tab
     `,``t``n` | open the next tab
     `,``t``p` | open the previous tab
