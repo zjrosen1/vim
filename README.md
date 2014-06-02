@@ -47,3 +47,4 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``t``l` | open the last tab
     `,``t``o` | close all tabs but the current one
     `,``b``e` | browse open buffers
+    `,``g``s` | run fugitive's interactive git status

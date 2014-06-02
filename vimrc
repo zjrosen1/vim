@@ -264,6 +264,7 @@ let g:user_emmet_leader_key = '<c-e>'
 nmap <leader>ga :Git add -A<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Git push<CR>
+nmap <leader>gs :Gstatus<CR>
 " CoffeeScript
 nnoremap <leader>cw :CoffeeWatch<cr>
 nnoremap <leader>cr :CoffeeRun<cr>
