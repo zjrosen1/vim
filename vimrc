@@ -80,6 +80,9 @@ au FocusLost * :wa
 " Mappings
 inoremap <C-c> <esc>                " Just smart
 inoremap jj <ESC>                   " Thank You Steve
+map ; :
+nmap zr zR
+nmap zm zM
 
 
 command! W w                        " Remap :W to :w

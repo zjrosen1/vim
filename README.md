@@ -48,3 +48,7 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``t``o` | close all tabs but the current one
     `,``b``e` | browse open buffers
     `,``g``s` | run fugitive's interactive git status
+    `z``r` | Restore all folded code in active window
+    `z``m` | Fold all code in active window (using indentation)
+    `z``o` | Open highlighted code fold
+    `z``c` | Close highlighted code block (using indentation)
