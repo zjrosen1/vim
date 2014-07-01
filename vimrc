@@ -21,6 +21,7 @@ set hidden                          " Useful for auto setting hidden buffers
 syntax enable                       " Enable syntax highlighting
 set nostartofline                   " Don't reset cursor to start of line when moving around
 set ttyfast
+set history=1000
 
 " Searching/Moving {{{2
 " nnoremap / /\v
@@ -35,30 +36,25 @@ nnoremap k gk
 
 " Appearance {{{2
 " set number                          " Always show line numbers
-set listchars=tab:▸\ ,trail:·,eol:¬ " Use new symbols for tabstops and EOLs
+set listchars=tab:\|\ ,trail:·,eol:¬ " Use new symbols for tabstops and EOLs
 set ts=2 sts=2 sw=2 noexpandtab     " Default tab stops
+set backspace=indent,eol,start
 set showcmd                         " Shows incomplete command
 set novb noeb                       " Turn off visual bell and remove error beeps
 set splitbelow										  " New window goes below
 set splitright										  " New windows goes right
-set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
-set wildignore+=*/smarty/*,*/vendor/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*
 set wildmenu                        " Enhance command-line completion
 set wildmode=longest:full,full
+set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj
+set wildignore+=*/smarty/*,*/vendor/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*.DS_Store
 set encoding=utf-8
 set cursorline                      " Highlight current line
 set laststatus=2                    " Always show the statusline
 set t_Co=256                        " Explicitly tell Vim that the terminal supports 256 colors
-set backspace=indent,eol,start
 
 " Colors and Theme {{{2
 set background=dark
 colorscheme badwolf
-
-" Do I need this
-if &t_Co > 2 || has("gui_running")
-	syntax on			" Enable syntax highlighting
-endif
 " Auto Commands {{{1
 " Auto source vimrc on save  {{{2
 augroup reload_vimrc " {
@@ -77,6 +73,8 @@ endif
 
 " Save on losing focus {{{2
 au FocusLost * :wa
+" Resize splits when window is resized {{{2
+au VimResized * exe "normal! \<c-w>="
 " Clean up nasty wysiwig html {{{2
 " Install pandoc first
 " https://code.google.com/p/pandoc/downloads/list
@@ -97,16 +95,12 @@ if has("autocmd")
   autocmd FileType html setlocal formatexpr=FormatprgLocal(pandoc_pipeline)
 endif
 " Mappings {{{1
-inoremap <C-c> <ESC>								" Just smart
-inoremap jj <ESC>:w<CR>
-
+" Stuff {{{2
 
 command! W w												" Remap :W to :w
 
 nnoremap Y y$												" Yank to end of line with Y
-
-" Visually select the text that was last edited/pasted
-nmap gV `[v`]
+nnoremap D d$												" Delete to end of line with D
 
 " like gv but for pasted text
 " nnoremap <leader>v V`]
@@ -114,14 +108,36 @@ nmap gV `[v`]
 " Not sure about this one quite yet
 " nnoremap ; :
 
-nmap fq :q!<CR>
+" :Wrap to wrap lines command! -nargs=* Wrap set wrap linebreak nolist
+
+" Visual Selection {{{2
+
+" Fix linewise visual selection of various text objects
+nnoremap Vat vatV
+nnoremap Vab vabV
+nnoremap VaB vaBV
+
+" Don't move on *
+nnoremap * *<c-o>
+
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
+
+" Searching {{{2
+
 " Control space to search mode
 nnoremap <Nul> /
 
-" :Wrap to wrap lines command! -nargs=* Wrap set wrap linebreak nolist
+" Keep search matches in the middle of the window
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" Escaping {{{2
+inoremap <C-c> <ESC>								" Just smart
+inoremap jj <ESC>:w<CR>
 
-" Toggle errors
-nmap <leader>st :SyntasticToggleMode<cr>
+" Force quit that bitch
+nmap fq :q!<CR>
+
 " Filetype {{{2
 nmap _ht :set ft=html<CR>
 nmap _ph :set ft=php<CR>
@@ -135,6 +151,9 @@ nmap _vi :set ft=vim<CR>
 " Folding {{{2
 nnoremap <Space> za
 " nnoremap <Space> /
+
+" Use ,z to "focus" the current fold
+nnoremap <leader>z zMzvzz
 
 " Bubble single lines {{{2
 nmap <C-Up> [e
@@ -160,13 +179,13 @@ nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
 nnoremap <C-y> 3<C-y>
 
 " Syntax highlighting groups for word under cursor {{{2
-nmap <C-S-P> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-	if !exists("*synstack")
-		return
-	endif
-	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
+" nmap <C-S-P> :call <SID>SynStack()<CR>
+" function! <SID>SynStack()
+" 	if !exists("*synstack")
+" 		return
+" 	endif
+" 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+" endfunc
 
 " Awesome fucking pasting {{{2
 function! WrapForTmux(s)
@@ -338,6 +357,16 @@ endfunction
 " run test runner
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
+" Visual Mode */# from Scrooloose {{{2
+function! s:VSetSearch()
+	let temp = @@
+	norm! gvy
+	let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+	let @@ = temp
+endfunction
+
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
+
 " Plugins {{{1
 " Easy-motion {{{2
 " let g:EasyMotion_leader_key = '<Leader>'
@@ -375,6 +404,8 @@ let g:rbpt_loadcmd_toggle = 0
 " Syntastic {{{2
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 5
+" Toggle errors
+nmap <leader>st :SyntasticToggleMode<cr>
 " Tabularize {{{2
 if exists(":Tabularize")
 	nmap <Leader>a= :Tabularize /=<CR>
