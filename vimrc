@@ -369,6 +369,9 @@ endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
 
 " Plugins {{{1
+" vmath {{{2
+vmap <expr>  ++  VMATH_YankAndAnalyse()
+nmap         ++  vip++
 " Easy-motion {{{2
 " let g:EasyMotion_leader_key = '<Leader>'
 " Emmet {{{2
