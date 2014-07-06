@@ -97,6 +97,7 @@ endif
 " Mappings {{{1
 " Stuff {{{2
 
+cmap w!! %!sudo tee> /dev/null %
 command! W w												" Remap :W to :w
 
 nnoremap Y y$												" Yank to end of line with Y
