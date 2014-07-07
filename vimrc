@@ -140,6 +140,9 @@ inoremap jj <ESC>:w<CR>
 nmap fq :q!<CR>
 
 " Filetype {{{2
+
+nmap _j vipJV"+yu
+
 nmap _ht :set ft=html<CR>
 nmap _ph :set ft=php<CR>
 nmap _py :set ft=python<CR>
