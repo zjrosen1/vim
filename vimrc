@@ -268,6 +268,7 @@ nmap <leader>ga :Git add -A<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Git push<CR>
 nmap <leader>gs :Gstatus<CR>
+nmap <leader>gd :Gdiff<CR>
 " CoffeeScript
 nnoremap <leader>cw :CoffeeWatch<cr>
 nnoremap <leader>cr :CoffeeRun<cr>
