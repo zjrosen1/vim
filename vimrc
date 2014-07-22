@@ -280,6 +280,7 @@ let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 let g:ctrlp_split_window = 0 " Prefer windows to tabs
 let g:ctrlp_max_files = 0 " Allow full caching of big projects
 let g:ctrlp_max_depth = 40 " Allow full caching of deep files
+nmap <leader>cp :CtrlPClearCache<CR>
 " MultipleCursors
 let g:multi_cursor_next_key='<C-m>'
 let g:multi_cursor_quit_key='<C-c>'
