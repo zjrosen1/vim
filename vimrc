@@ -264,8 +264,8 @@ endfunction
 " Emmet
 let g:user_emmet_leader_key = '<c-e>'
 "Fugitive Git
-nmap <leader>ga :Git add -A<CR>
-nmap <leader>gc :Gcommit<CR>
+nmap <leader>ga :Git add %<CR>
+nmap <leader>gc :Git checkout %<CR>
 nmap <leader>gp :Git push<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gd :Gdiff<CR>
