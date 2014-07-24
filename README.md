@@ -2,8 +2,8 @@
 
     cd ~
     git clone http://github.com/zjrosen1/vim.git ~/.vim
-		cd .vim
-		./install.sh
+    cd .vim
+    ./install.sh
 
 ## Installing plugins as git submodules
 
