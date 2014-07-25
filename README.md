@@ -24,6 +24,7 @@ The leader key is set to `,` and several commands have been remapped to avoid co
 
     Shortcut | Action
     --- | ---
+    `j``j` | exit insert mode
     `,``n``t` | open file browser (NERDTree)
     `ctrl` + `p` | fuzzy match file paths in current directory (files open in current window by default)
     `ctrl` + `m` | multi-cursor current word (repeat to select more occurences)
