@@ -78,8 +78,7 @@ endif
 " Save on losing focus
 au FocusLost * :wa
 " Mappings
-inoremap <C-c> <esc>                " Just smart
-inoremap jj <ESC>                   " Thank You Steve
+inoremap jj <ESC>
 map ; :
 nmap zr zR
 nmap zm zM
