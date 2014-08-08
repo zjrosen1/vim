@@ -268,6 +268,9 @@ nmap <leader>gc :Git checkout %<CR>
 nmap <leader>gp :Git push<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gd :Gdiff<CR>
+nmap <leader>gl :Git log<CR>
+nmap <leader>gt :Git tree<CR>
+
 " CoffeeScript
 nnoremap <leader>cw :CoffeeWatch<cr>
 nnoremap <leader>cr :CoffeeRun<cr>
