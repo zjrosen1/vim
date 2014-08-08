@@ -34,10 +34,10 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``,``k` | easy motion up by line
     `,``w``s` | split window horizontally
     `,``w``v` | split window vertically
-    `,``w``j` or `ctrl` + `j` | move the cursor down one window
-    `,``w``k` or `ctrl` + `k` | move the cursor up one window
-    `,``w``h` or `ctrl` + `h` | move the cursor left one window
-    `,``w``l` or `ctrl` + `l` | move the cursor right one window
+    `ctrl` + `j` | move the cursor down one window
+    `ctrl` + `k` | move the cursor up one window
+    `ctrl` + `h` | move the cursor left one window
+    `ctrl` + `l` | move the cursor right one window
     `,``w``o` | close all windows but the current one
     `,``t``t` | open new tab
     `,``t``n` | open the next tab
@@ -47,8 +47,8 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``t``o` | close all tabs but the current one
     `,``b``e` | browse open buffers
     `,``g``s` | run fugitive's interactive git status
-    `,``g``a` | stage the changes in the current file (git add)
-    `,``g``c` | restore current file to last commit (git checkout)
+    `,``g``a` | interactively stage changes since last commit (git add -p)
+    `,``g``c` | restore current file to last commit (git commit)
     `,``g``d` | compare changes in current file to last commit (git diff)
     `,``g``p` | push current branch to upstream remote (git push)
     `,``g``l` | view recent commits on the current branch (git log)
