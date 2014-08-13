@@ -53,8 +53,9 @@ set t_Co=256                        " Explicitly tell Vim that the terminal supp
 set backspace=indent,eol,start
 
 " Colors and Theme
+let g:solarized_termtrans = 1
 set background=dark
-colorscheme badwolf
+colorscheme solarized
 
 " Auto Commands
 " Auto source vimrc on save 
