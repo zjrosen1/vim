@@ -36,6 +36,7 @@ nnoremap k gk
 
 " Appearance {{{2
 " set number                          " Always show line numbers
+set numberwidth=3											" Changed the width of line number columns
 set listchars=tab:\|\ ,trail:·,eol:¬ " Use new symbols for tabstops and EOLs
 set ts=2 sts=2 sw=2 noexpandtab     " Default tab stops
 set backspace=indent,eol,start
@@ -71,6 +72,9 @@ if has("autocmd")
 		\ endif
 endif
 
+if has("autocmd")
+	autocmd BufReadPost *.hbs set ft=html
+endif
 " Save on losing focus {{{2
 au FocusLost * :wa
 " Resize splits when window is resized {{{2
@@ -141,7 +145,7 @@ nmap fq :q!<CR>
 
 " Filetype {{{2
 
-nmap _j vipJV"+yu
+nmap _j vipJV"+yu  "For a SO question i answered, joins lines and copies to system clipboard
 
 nmap _ht :set ft=html<CR>
 nmap _ph :set ft=php<CR>
@@ -153,7 +157,7 @@ nmap _zs :set ft=mkd<CR>
 nmap _vi :set ft=vim<CR>
 
 " Folding {{{2
-nnoremap <Space> za
+nnoremap <Tab> za
 " nnoremap <Space> /
 
 " Use ,z to "focus" the current fold
@@ -214,7 +218,7 @@ endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
-" Fucking F1 {{{2
+" Fuck F1 one help tp rule them all :h {{{2
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
@@ -253,7 +257,7 @@ nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 " Alphabetically sort CSS properties in file with :SortCSS
 " :command! SortCSS :g#\({\n\)\@<=#.,/}/sort
 
-nmap <Leader>" viwS"
+nmap <leader>" viwS"
 " Functions {{{1
 " Remove trailing white space {{{2
 function! Preserve(command)
@@ -376,7 +380,10 @@ vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
 vmap <expr>  ++  VMATH_YankAndAnalyse()
 nmap         ++  vip++
 " Easy-motion {{{2
-" let g:EasyMotion_leader_key = '<Leader>'
+let g:EasyMotion_leader_key = '<Space>'
+hi EasyMotionTarget ctermbg=none ctermfg=DarkRed
+" hi EasyMotionShade  ctermbg=none ctermfg=DarkGray
+
 " Emmet {{{2
 let g:user_emmet_leader_key = '<c-e>'
 "Fugitive Git {{{2
@@ -393,6 +400,7 @@ let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 let g:ctrlp_split_window = 2 " <CR> = New Tab
 " MultipleCursors {{{2
+let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_quit_key='<C-c>'
 " Markdown {{{2
 let g:vim_markdown_initial_foldlevel=1
