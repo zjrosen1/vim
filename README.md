@@ -57,3 +57,7 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `z``m` | fold all code in active window (using indentation)
     `z``o` | open highlighted code fold
     `z``c` | close highlighted code block (using indentation)
+
+## Configuring tmux to play nicely with vim
+
+Paste [this](https://gist.github.com/lowe0292/af5748926a52948709eb) into your ~/.tmux.conf and the window navigation shortcuts from vim will work accross tmux panes too!
