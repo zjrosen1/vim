@@ -98,3 +98,6 @@
 	path = bundle/vim-angular
 	url = https://github.com/burnettk/vim-angular
   ignore = dirty
+[submodule "bundle/angular-vim-snippets"]
+	path = bundle/angular-vim-snippets
+	url = git@github.com:matthewsimo/angular-vim-snippets.git
