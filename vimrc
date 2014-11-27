@@ -313,6 +313,9 @@ if exists(":Tabularize")
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
+" vim-angular
+let g:angular_source_directory = 'app/scripts'
+let g:angular_test_directory = 'test/spec'
 " Modelines
 set modelines=1
 set foldmethod=indent
