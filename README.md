@@ -3,7 +3,7 @@
     git clone http://github.com/lowe0292/vim.git ~/.vim
     ln -s ~/.vim/vimrc ~/.vimrc
     cd ~/.vim
-    git submodule update --init 
+    git submodule update --init --recursive
 
 ## Installing plugins as git submodules
 

@@ -101,3 +101,6 @@
 [submodule "bundle/angular-vim-snippets"]
 	path = bundle/angular-vim-snippets
 	url = git@github.com:matthewsimo/angular-vim-snippets.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = http://github.com/Valloric/YouCompleteMe.git
