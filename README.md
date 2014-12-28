@@ -5,6 +5,10 @@
     cd ~/.vim
     git submodule update --init --recursive
 
+To enable JavaScript autocomplete:
+- Build [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#full-installation-guide) after installing dependencies
+- Install tern_for_vim npm dependencies with ```cd ~/.vim/bundle/tern_for_vim/ && npm install```
+
 ## Installing plugins as git submodules
 
     cd ~/.vim
