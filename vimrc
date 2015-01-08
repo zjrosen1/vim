@@ -177,7 +177,7 @@ nmap <silent> <leader>s :set spell!<CR>
 " Ack -- a
 nmap <Leader>a :Ack
 " Tab Editing
-" Useful mappings for managing taps
+" Useful mappings for managing tabs
 map <leader>tt :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
@@ -195,6 +195,16 @@ nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
 nmap <Leader>" viwS"
 nmap <leader>p :reg<CR>
+nmap <leader>0 "a
+nmap <leader>1 "b
+nmap <leader>2 "c
+nmap <leader>3 "d
+nmap <leader>4 "e
+nmap <leader>5 "f
+nmap <leader>6 "g
+nmap <leader>7 "h
+nmap <leader>8 "i
+nmap <leader>9 "j
 
 nnoremap <leader>w <C-w>
 nnoremap <Leader>h <C-w>h
