@@ -4,13 +4,13 @@
 " Info: A solid vimrc
 "-------------------------
 
-" Pathogen for the win {{{1
+" [ Pathogen for the win ]{{{1
 " Plug-in Manager
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 call pathogen#infect()
 
-" Prefrences {{{1
+" [ Prefrences ] {{{1
 filetype plugin indent on
 let mapleader =","								 " Set global mapleader
 set nocompatible
@@ -72,9 +72,9 @@ if has("autocmd")
 		\ endif
 endif
 
-if has("autocmd")
-	autocmd BufReadPost *.hbs set ft=html
-endif
+" if has("autocmd")
+" 	autocmd BufReadPost *.hbs set ft=html
+" endif
 " Save on losing focus {{{2
 au FocusLost * :wa
 " Resize splits when window is resized {{{2
@@ -248,6 +248,8 @@ map <leader>tm :tabmove<cr>
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Extras for now {{{2
+" Surround with backticks
+nnoremap <leader>` 0v$S`
 "Fold an html container
 nnoremap <leader>ft Vatzf
 
@@ -258,6 +260,7 @@ nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 " :command! SortCSS :g#\({\n\)\@<=#.,/}/sort
 
 nmap <leader>" viwS"
+nmap <leader>` 0v$hS`
 " Functions {{{1
 " Remove trailing white space {{{2
 function! Preserve(command)
@@ -394,6 +397,7 @@ nmap <leader>gp :Git push<CR>
 nnoremap <leader>cw :CoffeeWatch<cr>
 nnoremap <leader>cr :CoffeeRun<cr>
 " CtrlP {{{2
+let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|DS_Store\|git'
 let g:ctrlp_match_window_bottom = 0 " Show at top of window
 let g:ctrlp_working_path_mode = 2 " Smart path mode
 let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
@@ -404,6 +408,8 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_quit_key='<C-c>'
 " Markdown {{{2
 let g:vim_markdown_initial_foldlevel=1
+" Mustache {{{2
+let g:mustache_abbreviations = 1
 " NerdTree {{{2
 autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
 map <C-n><C-t> :NERDTreeToggle<CR>
