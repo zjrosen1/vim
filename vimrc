@@ -314,6 +314,8 @@ endif
 " vim-angular
 let g:angular_source_directory = 'app/scripts'
 let g:angular_test_directory = 'test/spec'
+" vim-airline
+let g:airline_theme='badwolf'
 " Modelines
 set modelines=1
 set foldmethod=indent
