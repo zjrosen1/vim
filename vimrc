@@ -294,8 +294,6 @@ let g:multi_cursor_quit_key='<C-c>'
 let g:vim_markdown_initial_foldlevel=1
 " NerdTree
 autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
-" Powerline
-let g:Powerline_symbols = 'fancy'
 " Rainbow Parens
 nmap <leader>r :RainbowParenthesesToggle<CR>
 au Syntax * RainbowParenthesesLoadRound
