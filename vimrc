@@ -304,8 +304,6 @@ let g:multi_cursor_quit_key='<C-c>'
 let g:vim_markdown_initial_foldlevel=1
 " NerdTree
 autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
-" Powerline
-let g:Powerline_symbols = 'fancy'
 " Rainbow Parens
 nmap <leader>r :RainbowParenthesesToggle<CR>
 au Syntax * RainbowParenthesesLoadRound
@@ -326,6 +324,8 @@ endif
 " vim-angular
 let g:angular_source_directory = 'app/scripts'
 let g:angular_test_directory = 'test/spec'
+" vim-airline
+let g:airline_theme='badwolf'
 " Modelines
 set modelines=1
 set foldmethod=indent
