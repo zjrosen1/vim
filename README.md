@@ -29,19 +29,18 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     --- | ---
     `j``j` | exit insert mode
     `,``n``t` | open file browser (NERDTree)
-    `ctrl` + `p` | fuzzy match file paths in current directory (files open in current window by default)
+    `ctrl` + `p` | fuzzy match file paths in current directory
+    `,``,` | refresh cache for fuzzy match
     `ctrl` + `m` | multi-cursor current word (repeat to select more occurences)
     `ctrl` + `c` | exit mutli-cursor (after `ctrl` + `m`)
-    `,``,``w` | easy motion forward by word
-    `,``,``b` | easy motion backward by word
-    `,``,``j` | easy motion down by line
-    `,``,``k` | easy motion up by line
     `,``w``s` | split window horizontally
     `,``w``v` | split window vertically
     `ctrl` + `j` | move the cursor down one window
     `ctrl` + `k` | move the cursor up one window
     `ctrl` + `h` | move the cursor left one window
     `ctrl` + `l` | move the cursor right one window
+    `,``p` | toggle paste mode
+    `,``c` | toggle copy mode
     `,``w``o` | close all windows but the current one
     `,``t``t` | open new tab
     `,``t``n` | open the next tab

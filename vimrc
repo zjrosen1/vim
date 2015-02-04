@@ -194,7 +194,8 @@ nnoremap <leader>ft Vatzf
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
 nmap <Leader>" viwS"
-nmap <leader>p :reg<CR>
+nmap <leader>p :set paste!<CR>
+nmap <leader>c :set nu!<CR>:set list!<CR>
 nmap <leader>0 "a
 nmap <leader>1 "b
 nmap <leader>2 "c
@@ -285,9 +286,6 @@ nmap <leader>gd :Gdiff<CR>
 nmap <leader>gl :Git log<CR>
 nmap <leader>gt :Git tree<CR>
 
-" CoffeeScript
-nnoremap <leader>cw :CoffeeWatch<cr>
-nnoremap <leader>cr :CoffeeRun<cr>
 " CtrlP
 let g:ctrlp_match_window_bottom = 0 " Show at top of window
 let g:ctrlp_working_path_mode = 2 " Smart path mode
@@ -296,7 +294,7 @@ let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 let g:ctrlp_split_window = 0 " Prefer windows to tabs
 let g:ctrlp_max_files = 0 " Allow full caching of big projects
 let g:ctrlp_max_depth = 40 " Allow full caching of deep files
-nmap <leader>cp :CtrlPClearCache<CR>
+nmap <leader><leader> :CtrlPClearCache<CR>
 " MultipleCursors
 let g:multi_cursor_next_key='<C-m>'
 let g:multi_cursor_quit_key='<C-c>'
