@@ -21,6 +21,7 @@ set hidden                          " Useful for auto setting hidden buffers
 syntax enable                       " Enable syntax highlighting
 set nostartofline                   " Don't reset cursor to start of line when moving around
 set ttyfast
+set completeopt-=preview
 
 " Searching/Moving
 " nnoremap / /\v
@@ -280,6 +281,7 @@ let g:user_emmet_leader_key = '<c-e>'
 "Fugitive Git
 nmap <leader>ga :Git add -p<CR>
 nmap <leader>gc :Git commit<CR>
+nmap <leader>gr :Git rebase -i develop<CR>
 nmap <leader>gp :Git push<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gd :Gdiff<CR>
