@@ -47,7 +47,7 @@ set splitright										  " New windows goes right
 set wildmenu                        " Enhance command-line completion
 set wildmode=longest:full,full
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj
-set wildignore+=*/smarty/*,*/vendor/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*.DS_Store
+set wildignore+=*/smarty/*,*/vendor/*,*/node_modules/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*.DS_Store
 set encoding=utf-8
 set cursorline                      " Highlight current line
 set laststatus=2                    " Always show the statusline
@@ -56,7 +56,7 @@ set t_Co=256                        " Explicitly tell Vim that the terminal supp
 " Colors and Theme {{{2
 set background=dark
 colorscheme badwolf
-" Auto Commands {{{1
+" [ Auto Commands ]{{{1
 " Auto source vimrc on save  {{{2
 augroup reload_vimrc " {
     autocmd!
@@ -72,9 +72,11 @@ if has("autocmd")
 		\ endif
 endif
 
-" if has("autocmd")
-" 	autocmd BufReadPost *.hbs set ft=html
-" endif
+" Set filetype {{{2
+ if has("autocmd")
+	" add hbs syntax highlighting
+	au BufNewFile,BufRead *.hbs set ft=html
+ endif
 " Save on losing focus {{{2
 au FocusLost * :wa
 " Resize splits when window is resized {{{2
@@ -98,7 +100,7 @@ if has("autocmd")
   let pandoc_pipeline .= " | pandoc --from=markdown --to=html"
   autocmd FileType html setlocal formatexpr=FormatprgLocal(pandoc_pipeline)
 endif
-" Mappings {{{1
+" [ Mappings ] {{{1
 " Stuff {{{2
 
 cmap w!! %!sudo tee> /dev/null %
@@ -222,15 +224,15 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
-" Leader Mappings {{{1
-" Toggle Highlighting -- h {{{2
-nmap <silent> <leader>h :set hlsearch!<CR>
-
+" [ Leader Mappings ] {{{1
 " Update vimrc -- v OR ev {{{2
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 " Update snipmate -- sc {{{2
 nmap <leader>sc :tabedit ~/.vim/bundle/vim-snippets/snippets<CR>
+
+" Toggle Highlighting -- h {{{2
+nmap <silent> <leader>h :set hlsearch!<CR>
 
 " Toggle Spell Checking -- s {{{2
 nmap <silent> <leader>s :set spell!<CR>
@@ -239,6 +241,13 @@ nmap <silent> <leader>s :set spell!<CR>
 nmap <Leader>l :set list!<CR>
 " Ack -- a {{{2
 nmap <Leader>a :Ack 
+" Surround selection with -- ` ' " {{{2
+" Surround selection with backticks
+nnoremap <leader>` 0v$S`
+" Surround selection with "
+nmap <leader>" viwS"
+" Surround selection with '
+nmap <leader>' viwS'
 " Tab Editing {{{2
 " Useful mappings for managing taps
 map <leader>tn :tabnew<cr>
@@ -248,8 +257,6 @@ map <leader>tm :tabmove<cr>
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Extras for now {{{2
-" Surround with backticks
-nnoremap <leader>` 0v$S`
 "Fold an html container
 nnoremap <leader>ft Vatzf
 
@@ -259,9 +266,7 @@ nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 " Alphabetically sort CSS properties in file with :SortCSS
 " :command! SortCSS :g#\({\n\)\@<=#.,/}/sort
 
-nmap <leader>" viwS"
-nmap <leader>` 0v$hS`
-" Functions {{{1
+" [ Functions ]{{{1
 " Remove trailing white space {{{2
 function! Preserve(command)
 	" Preparation: save last search, and cursor position.
@@ -378,7 +383,7 @@ endfunction
 
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
 
-" Plugins {{{1
+" [ Plugins ] {{{1
 " vmath {{{2
 vmap <expr>  ++  VMATH_YankAndAnalyse()
 nmap         ++  vip++
@@ -434,6 +439,6 @@ if exists(":Tabularize")
 	nmap <Leader>a: :Tabularize /:\zs<CR>
 	vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
-" Modelines {{{1
+" [ Modeline ] {{{1
 set modelines=1
 " vim: set foldmethod=marker:
