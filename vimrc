@@ -274,8 +274,6 @@ function! SummarizeTabs()
 endfunction
 
 " Plugins
-" Easy-motion
-" let g:EasyMotion_leader_key = '<Leader>'
 " Emmet
 let g:user_emmet_leader_key = '<c-e>'
 "Fugitive Git
