@@ -1,17 +1,19 @@
-# Installing on your own machine
+# Installation
 
-    cd ~
     git clone http://github.com/zjrosen1/vim.git ~/.vim
-    cd .vim
+    cd ~/.vim
     ./install.sh
 
-## Installing plugins as git submodules
+## Need Moar Plugins
+###Vundle like its 2015
 
-    cd ~/.vim
-    mkdir ~/.vim/bundle
-    git submodule add http://github.com/tpope/vim-fugitive.git bundle/fugitive
-    git add .
-    git commit -m "Install Fugitive.vim bundle as a submodule."
+Add a new plugin to your vimrc
 
-## Upgrading all bundled plugins
-    git submodule foreach git pull origin master
+		Plugin 'moar/plugin'
+		:PluginInstall
+
+Search for all or specific plugins inside of vim
+
+		:PluginList
+
+		:PluginList ack

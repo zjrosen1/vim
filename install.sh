@@ -8,8 +8,7 @@ while true; do
 	case $yn in
 		[Yy]* ) 
 			ln -sf ~/.vim/vimrc ~/.vimrc ;
-			cd ~/.vim ;
-			git submodule update --init ;
+			vim +PluginInstall +qall
 			break;;
 		[Nn]* ) echo "Bye";
 			exit;;

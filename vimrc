@@ -14,46 +14,36 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Plugins Github
-" TPOPE Magic
+" Github
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-
-Plugin 'kien/ctrlp'
-Plugin 'kien/rainbow_parentheses.vim'
-
 Plugin 'sjl/badwolf'
 Plugin 'sjl/gundo.vim'
-
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'tommcdo/vim-exchange'
-Plugin 'mileszs/ack'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kana/vim-smartinput'
 Plugin 'ervandew/supertab'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'mattn/emmet-vim'
-
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-
+Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'marcweber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
 " vim-scripts
-Plugin 'matchit'
+Plugin 'ctrlp.vim'
+Plugin 'matchit.zip'
+Plugin 'ack.vim'
 
 call vundle#end()
 
