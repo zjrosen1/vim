@@ -4,16 +4,66 @@
 " Info: A solid vimrc
 "-------------------------
 
-" [ Pathogen for the win ]{{{1
-" Plug-in Manager
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-call pathogen#infect()
+" [ Vundle Setup ]{{{1
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Plugins Github
+" TPOPE Magic
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+
+Plugin 'kien/ctrlp'
+Plugin 'kien/rainbow_parentheses.vim'
+
+Plugin 'sjl/badwolf'
+Plugin 'sjl/gundo.vim'
+
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'tommcdo/vim-exchange'
+Plugin 'mileszs/ack'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'kana/vim-smartinput'
+Plugin 'ervandew/supertab'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'mattn/emmet-vim'
+
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+
+Plugin 'marcweber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
+" vim-scripts
+Plugin 'matchit'
+
+call vundle#end()
+filetype plugin indent on
+
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
+"call pathogen#infect()
 
 " [ Prefrences ] {{{1
-filetype plugin indent on
 let mapleader =","								 " Set global mapleader
-set nocompatible
 set noswapfile
 set autoindent
 set smartindent
@@ -106,6 +156,7 @@ endif
 cmap w!! %!sudo tee> /dev/null %
 command! W w												" Remap :W to :w
 
+nnoremap <ESC> :q<CR>
 nnoremap Y y$												" Yank to end of line with Y
 nnoremap D d$												" Delete to end of line with D
 
@@ -421,12 +472,12 @@ map <C-n><C-t> :NERDTreeToggle<CR>
 " Powerline {{{2
 let g:Powerline_symbols = 'fancy'
 " Rainbow Parens {{{2
-nmap <leader>r :RainbowParenthesesToggle<CR>
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
+" nmap <leader>r :RainbowParenthesesToggle<CR>
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
+" let g:rbpt_max = 16
+" let g:rbpt_loadcmd_toggle = 0
 " Syntastic {{{2
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 5
