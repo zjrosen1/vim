@@ -56,11 +56,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'matchit'
 
 call vundle#end()
-filetype plugin indent on
 
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
-"call pathogen#infect()
+filetype plugin indent on
 
 " [ Prefrences ] {{{1
 let mapleader =","								 " Set global mapleader
