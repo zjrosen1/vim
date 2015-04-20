@@ -1,8 +1,8 @@
-"-------------------------
-"	Author: Zack Rosen
-"	Email: zjrosen@gmail.com
-" Info: A solid vimrc
-"-------------------------
+" |--------------------------|
+" | Author: Zack Rosen       |
+" | Email: zjrosen@gmail.com |
+" | Info: A solid vimrc      |
+" |--------------------------|
 
 " [ Vundle Setup ]{{{1
 set nocompatible
@@ -50,7 +50,7 @@ call vundle#end()
 filetype plugin indent on
 
 " [ Prefrences ] {{{1
-let mapleader =","								 " Set global mapleader
+let mapleader =","									" Set global mapleader
 set noswapfile
 set autoindent
 set smartindent
@@ -74,21 +74,21 @@ nnoremap k gk
 " Appearance {{{2
 " set number                          " Always show line numbers
 set numberwidth=3											" Changed the width of line number columns
-set listchars=tab:\|\ ,trail:·,eol:¬ " Use new symbols for tabstops and EOLs
-set ts=2 sts=2 sw=2 noexpandtab     " Default tab stops
+set listchars=tab:\|\ ,trail:·,eol:¬  " Use new symbols for tabstops and EOLs
+set ts=2 sts=2 sw=2 noexpandtab				" Default tab stops
 set backspace=indent,eol,start
-set showcmd                         " Shows incomplete command
-set novb noeb                       " Turn off visual bell and remove error beeps
-set splitbelow										  " New window goes below
-set splitright										  " New windows goes right
-set wildmenu                        " Enhance command-line completion
+set showcmd                           " Shows incomplete command
+set novb noeb                         " Turn off visual bell and remove error beeps
+set splitbelow										    " New window goes below
+set splitright										    " New windows goes right
+set wildmenu                          " Enhance command-line completion
 set wildmode=longest:full,full
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj
 set wildignore+=*/smarty/*,*/vendor/*,*/node_modules/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*.DS_Store
 set encoding=utf-8
-set cursorline                      " Highlight current line
-set laststatus=2                    " Always show the statusline
-set t_Co=256                        " Explicitly tell Vim that the terminal supports 256 colors
+set cursorline                       " Highlight current line
+set laststatus=2                     " Always show the statusline
+set t_Co=256                         " Explicitly tell Vim that the terminal supports 256 colors
 
 " Colors and Theme {{{2
 set background=dark
@@ -111,7 +111,6 @@ endif
 
 " Set filetype {{{2
  if has("autocmd")
-	" add hbs syntax highlighting
 	au BufNewFile,BufRead *.hbs set ft=html
  endif
 " Save on losing focus {{{2
@@ -143,9 +142,10 @@ endif
 cmap w!! %!sudo tee> /dev/null %
 command! W w												" Remap :W to :w
 
-nnoremap <ESC> :q<CR>
 nnoremap Y y$												" Yank to end of line with Y
 nnoremap D d$												" Delete to end of line with D
+
+nmap _j vipJV"+yu  "For a SO question i answered, joins lines and copies to system clipboard
 
 " like gv but for pasted text
 " nnoremap <leader>v V`]
@@ -185,8 +185,6 @@ nmap fq :q!<CR>
 
 " Filetype {{{2
 
-nmap _j vipJV"+yu  "For a SO question i answered, joins lines and copies to system clipboard
-
 nmap _ht :set ft=html<CR>
 nmap _ph :set ft=php<CR>
 nmap _py :set ft=python<CR>
@@ -198,7 +196,6 @@ nmap _vi :set ft=vim<CR>
 
 " Folding {{{2
 nnoremap <Tab> za
-" nnoremap <Space> /
 
 " Use ,z to "focus" the current fold
 nnoremap <leader>z zMzvzz
@@ -449,8 +446,6 @@ let g:ctrlp_split_window = 2 " <CR> = New Tab
 " MultipleCursors {{{2
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_quit_key='<C-c>'
-" Markdown {{{2
-let g:vim_markdown_initial_foldlevel=1
 " Mustache {{{2
 let g:mustache_abbreviations = 1
 " NerdTree {{{2

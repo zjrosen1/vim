@@ -1,3 +1,5 @@
+[![](http://img.shields.io/badge/unicorn-approved-ff69b4.svg)](https://www.youtube.com/watch?v=9auOCbH5Ns4)
+
 # Installation
 
     git clone http://github.com/zjrosen1/vim.git ~/.vim
