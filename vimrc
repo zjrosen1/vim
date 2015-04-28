@@ -40,6 +40,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
 " vim-scripts
+Plugin 'Tabular'
 Plugin 'ctrlp.vim'
 Plugin 'matchit.zip'
 Plugin 'ack.vim'
@@ -111,6 +112,7 @@ endif
 " Set filetype {{{2
  if has("autocmd")
 	au BufNewFile,BufRead *.hbs set ft=html
+	au BufNewFile,BufRead *.twig set ft=html
  endif
 " Save on losing focus {{{2
 au FocusLost * :wa
