@@ -279,7 +279,7 @@ let g:user_emmet_leader_key = '<c-e>'
 "Fugitive Git
 nmap <leader>ga :Git add -p<CR>
 nmap <leader>gc :Git commit<CR>
-nmap <leader>gr :Git rebase -i develop<CR>
+nmap <leader>gr :Git rebase -i 
 nmap <leader>gp :Git push<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gd :Gdiff<CR>
@@ -352,3 +352,9 @@ else
   map <C-k> <C-w>k
   map <C-l> <C-w>l
 endif
+" Quickfix shortcuts
+nmap <leader>fa :vimgrep 'pattern' **/*
+nmap <leader>fn :cn<cr>
+nmap <leader>fp :cp<cr>
+nmap <leader>ff :cnf<cr>
+nmap <leader>fl :copen<cr>

@@ -29,26 +29,20 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     --- | ---
     `j``j` | exit insert mode
     `,``n``t` | open file browser (NERDTree)
+    `,``b``e` | browse open buffers
     `ctrl` + `p` | fuzzy match file paths in current directory
     `,``,` | refresh cache for fuzzy match
-    `ctrl` + `m` | multi-cursor current word (repeat to select more occurences)
+    `enter` | multi-cursor current word (repeat to select more occurences)
     `ctrl` + `c` | exit mutli-cursor (after `ctrl` + `m`)
     `,``w``s` | split window horizontally
     `,``w``v` | split window vertically
+    `,``w``o` | close all windows but the current one
     `ctrl` + `j` | move the cursor down one window
     `ctrl` + `k` | move the cursor up one window
     `ctrl` + `h` | move the cursor left one window
     `ctrl` + `l` | move the cursor right one window
     `,``p` | toggle paste mode
     `,``c` | toggle copy mode
-    `,``w``o` | close all windows but the current one
-    `,``t``t` | open new tab
-    `,``t``n` | open the next tab
-    `,``t``p` | open the previous tab
-    `,``t``f` | open the first tab
-    `,``t``l` | open the last tab
-    `,``t``o` | close all tabs but the current one
-    `,``b``e` | browse open buffers
     `,``g``s` | run fugitive's interactive git status
     `,``g``a` | interactively stage changes since last commit (git add -p)
     `,``g``c` | commit staged changes (git commit)
@@ -57,10 +51,20 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``g``p` | push current branch to upstream remote (git push)
     `,``g``l` | view recent commits on the current branch (git log)
     `,``g``t` | view recent commits on all branches (git [tree](http://stackoverflow.com/questions/1057564/pretty-git-branch-graphs))
-    `z``r` | restore all folded code in active window
+    `f``a` | search accross all files
+    `f``l` | list search results
+    `f``n` | advance to next search result
+    `f``p` | return to previous search result
+    `f``f` | advance to first search result in next file
     `z``m` | fold all code in active window (using indentation)
     `z``o` | open highlighted code fold
     `z``c` | close highlighted code block (using indentation)
+    `,``t``t` | open new tab
+    `,``t``n` | open the next tab
+    `,``t``p` | open the previous tab
+    `,``t``f` | open the first tab
+    `,``t``l` | open the last tab
+    `,``t``o` | close all tabs but the current one
 
 ## Configuring tmux to play nicely with vim
 
