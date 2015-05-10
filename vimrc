@@ -38,6 +38,8 @@ Plugin 'marcweber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+Plugin 'evidens/vim-twig'
+Plugin 'rking/ag.vim'
 
 " vim-scripts
 Plugin 'Tabular'
@@ -112,7 +114,6 @@ endif
 " Set filetype {{{2
  if has("autocmd")
 	au BufNewFile,BufRead *.hbs set ft=html
-	au BufNewFile,BufRead *.twig set ft=html
  endif
 " Save on losing focus {{{2
 au FocusLost * :wa
@@ -221,7 +222,7 @@ vmap <D-[> <gv
 vmap <D-[> >gv
 
 " Viewport Scrolling {{{2
-nnoremap <C-e> 3<C-e>								" Speed up viewport scrolling
+nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 " Syntax highlighting groups for word under cursor {{{2
@@ -256,7 +257,7 @@ endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
-" Fuck F1 one help tp rule them all :h {{{2
+" Fuck F1 one help to rule them all :h {{{2
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
@@ -275,8 +276,8 @@ nmap <silent> <leader>s :set spell!<CR>
 
 " Toggle set list -- l {{{2
 nmap <Leader>l :set list!<CR>
-" Ack -- a {{{2
-nmap <Leader>a :Ack 
+" Ag -- a {{{2
+nmap <Leader>a :Ag<SPACE>
 " Surround selection with -- ` ' " {{{2
 " Surround selection with backticks
 nnoremap <leader>` 0v$S`
@@ -472,6 +473,17 @@ if exists(":Tabularize")
 	vmap <Leader>a= :Tabularize /=<CR>
 	nmap <Leader>a: :Tabularize /:\zs<CR>
 	vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+" Ag The Silver Searcher {{{2
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
 endif
 " [ Modeline ] {{{1
 set modelines=1
