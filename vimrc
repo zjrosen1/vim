@@ -40,6 +40,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'evidens/vim-twig'
 Plugin 'rking/ag.vim'
+Plugin 'pangloss/vim-javascript'
 
 " vim-scripts
 Plugin 'Tabular'
@@ -215,6 +216,16 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Window Resizing {{{2
+nnoremap <Left> :vertical resize +1<CR>
+nnoremap <Right> :vertical resize -1<CR>
+nnoremap <Up> :resize +1<CR>
+nnoremap <Down> :resize -1<CR>
+" Insert Movement {{{2
+imap <C-e> <C-o>$
+imap <C-a> <C-o>0
+imap <C-f> <C-o>l
+imap <C-b> <C-o>h
 " Indent Mapping {{{2
 nmap <D-[> <<
 nmap <D-]> >>
