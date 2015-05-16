@@ -51,53 +51,49 @@ Plugin 'ack.vim'
 call vundle#end()
 
 filetype plugin indent on
-
 " [ Prefrences ] {{{1
-let mapleader =","									" Set global mapleader
+let mapleader = ","                    " Set global mapleader
 set noswapfile
 set autoindent
 set smartindent
-set hidden                          " Useful for auto setting hidden buffers
-syntax enable                       " Enable syntax highlighting
-set nostartofline                   " Don't reset cursor to start of line when moving around
+set hidden                             " Useful for auto setting hidden buffers
+syntax enable                          " Enable syntax highlighting
+set nostartofline                      " Don't reset cursor to start of line when moving around
 set ttyfast
 set history=1000
-
 " Searching/Moving {{{2
 " nnoremap / /\v
 " vnoremap / /\v
-set gdefault                        " Add the g flag to search/replace by default
-set incsearch                       " Highlight dynamically as pattern is typed
+set gdefault                          " Add the g flag to search/replace by default
+set incsearch                         " Highlight dynamically as pattern is typed
 " set hlsearch
-set ignorecase											" Ignore case when searching
-set smartcase												" Try and be smart about cases
+set ignorecase                        " Ignore case when searching
+set smartcase                         " Try and be smart about cases
 nnoremap j gj
 nnoremap k gk
-
 " Appearance {{{2
 " set number                          " Always show line numbers
-set numberwidth=3											" Changed the width of line number columns
+set numberwidth=3                     " Changed the width of line number columns
 set listchars=tab:\|\ ,trail:·,eol:¬  " Use new symbols for tabstops and EOLs
-set ts=2 sts=2 sw=2 noexpandtab				" Default tab stops
+set ts=2 sts=2 sw=2 noexpandtab       " Default tab stops
 set backspace=indent,eol,start
 set showcmd                           " Shows incomplete command
 set novb noeb                         " Turn off visual bell and remove error beeps
-set splitbelow										    " New window goes below
-set splitright										    " New windows goes right
+set splitbelow                        " New window goes below
+set splitright                        " New windows goes right
 set wildmenu                          " Enhance command-line completion
 set wildmode=longest:full,full
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj
 set wildignore+=*/smarty/*,*/vendor/*,*/node_modules/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*.DS_Store
 set encoding=utf-8
-set cursorline                       " Highlight current line
-set laststatus=2                     " Always show the statusline
-set t_Co=256                         " Explicitly tell Vim that the terminal supports 256 colors
-
+set cursorline                        " Highlight current line
+set laststatus=2                      " Always show the statusline
+set t_Co=256                          " Explicitly tell Vim that the terminal supports 256 colors
 " Colors and Theme {{{2
 set background=dark
 colorscheme badwolf
-" [ Auto Commands ]{{{1
-" Auto source vimrc on save  {{{2
+" [ Auto Commands ] {{{1
+" Auto source vimrc on save {{{2
 augroup reload_vimrc " {
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
@@ -148,7 +144,7 @@ command! W w												" Remap :W to :w
 nnoremap Y y$												" Yank to end of line with Y
 nnoremap D d$												" Delete to end of line with D
 
-nmap _j vipJV"+yu  "For a SO question i answered, joins lines and copies to system clipboard
+nmap _j vipJV"+yu										" For a SO question i answered, joins lines and copies to system clipboard
 
 " like gv but for pasted text
 " nnoremap <leader>v V`]
@@ -172,7 +168,6 @@ nnoremap * *<c-o>
 nmap gV `[v`]
 
 " Searching {{{2
-
 " Control space to search mode
 nnoremap <Nul> /
 
@@ -180,8 +175,10 @@ nnoremap <Nul> /
 nnoremap n nzzzv
 nnoremap N Nzzzv
 " Escaping {{{2
-inoremap <C-c> <ESC>								" Just smart
+inoremap <C-c> <ESC>									" Just smart
 inoremap jj <ESC>:w<CR>
+inoremap jk <ESC>:w<CR>
+inoremap fd <ESC>:w<CR>
 
 " Force quit that bitch
 nmap fq :q!<CR>
