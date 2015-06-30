@@ -191,7 +191,7 @@ nmap _py :set ft=python<CR>
 nmap _rb :set ft=ruby<CR>
 nmap _js :set ft=javascript<CR>
 nmap _zs :set ft=zsh<CR>
-nmap _zs :set ft=mkd<CR>
+nmap _md :set ft=mkd<CR>
 nmap _vi :set ft=vim<CR>
 
 " Folding {{{2
@@ -433,7 +433,7 @@ vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
 vmap <expr>  ++  VMATH_YankAndAnalyse()
 nmap         ++  vip++
 " Easy-motion {{{2
-let g:EasyMotion_leader_key = '<Space>'
+let g:EasyMotion_leader_key = ','
 hi EasyMotionTarget ctermbg=none ctermfg=DarkRed
 " hi EasyMotionShade  ctermbg=none ctermfg=DarkGray
 
@@ -452,7 +452,7 @@ let g:ctrlp_match_window_bottom = 0 " Show at top of window
 let g:ctrlp_working_path_mode = 2 " Smart path mode
 let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
 let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
-let g:ctrlp_split_window = 2 " <CR> = New Tab
+let g:ctrlp_split_window = 1 " <CR> = New Tab
 " MultipleCursors {{{2
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_quit_key='<C-c>'
@@ -473,14 +473,17 @@ let g:Powerline_symbols = 'fancy'
 " Syntastic {{{2
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 5
+let g:syntastic_javascript_checkers = ['eslint']
 " Toggle errors
 nmap <leader>st :SyntasticToggleMode<cr>
 " Tabularize {{{2
 if exists(":Tabularize")
-	nmap <Leader>a= :Tabularize /=<CR>
-	vmap <Leader>a= :Tabularize /=<CR>
-	nmap <Leader>a: :Tabularize /:\zs<CR>
-	vmap <Leader>a: :Tabularize /:\zs<CR>
+	nmap <Leader>t= :Tabularize /=<CR>
+	vmap <Leader>t= :Tabularize /=<CR>
+	nmap <Leader>t: :Tabularize /:\zs<CR>
+	vmap <Leader>t: :Tabularize /:\zs<CR>
+	nmap <Leader>t> :Tabularize /=><CR>
+	vmap <Leader>t> :Tabularize /=><CR>
 endif
 " Ag The Silver Searcher {{{2
 if executable('ag')
