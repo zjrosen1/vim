@@ -34,10 +34,12 @@ Plugin 'ervandew/supertab'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'mattn/emmet-vim'
 Plugin 'kien/rainbow_parentheses.vim'
+
 Plugin 'marcweber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+
 Plugin 'evidens/vim-twig'
 Plugin 'rking/ag.vim'
 Plugin 'pangloss/vim-javascript'
