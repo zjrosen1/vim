@@ -54,7 +54,7 @@ call vundle#end()
 
 filetype plugin indent on
 " [ Prefrences ] {{{1
-let mapleader = ","                    " Set global mapleader
+let mapleader = " "                    " Set global mapleader to space
 set noswapfile
 set autoindent
 set smartindent
@@ -178,13 +178,12 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 " Escaping {{{2
 inoremap <C-c> <ESC>									" Just smart
-inoremap jj <ESC>:w<CR>
-inoremap jk <ESC>:w<CR>
-inoremap fd <ESC>:w<CR>
+inoremap jj <ESC>
+inoremap jk <ESC>
+inoremap fd <ESC>
 
 " Force quit that bitch
 nmap fq :q!<CR>
-
 " Filetype {{{2
 
 nmap _ht :set ft=html<CR>
@@ -198,23 +197,19 @@ nmap _vi :set ft=vim<CR>
 
 " Folding {{{2
 nnoremap <Tab> za
-
-" Use ,z to "focus" the current fold
+" Use leader z to "focus" the current fold
 nnoremap <leader>z zMzvzz
-
 " Bubble single lines {{{2
 nmap <C-Up> [e
 nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
-
 " Window Switching {{{2
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
 " Window Resizing {{{2
 nnoremap <Left> :vertical resize +1<CR>
 nnoremap <Right> :vertical resize -1<CR>
@@ -272,12 +267,13 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 " [ Leader Mappings ] {{{1
+" Save a file -- fs {{{2
+nmap <leader>fs :w<CR>
 " Update vimrc -- v OR ev {{{2
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 " Update snipmate -- sc {{{2
 nmap <leader>sc :tabedit ~/.vim/bundle/vim-snippets/snippets<CR>
-
 " Toggle Highlighting -- h {{{2
 nmap <silent> <leader>h :set hlsearch!<CR>
 
@@ -418,8 +414,8 @@ function! RunNearestTest()
 endfunction
 
 " run test runner
-map <leader>t :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
+" map <leader>t :call RunTestFile()<cr>
+" map <leader>T :call RunNearestTest()<cr>
 " Visual Mode */# from Scrooloose {{{2
 function! s:VSetSearch()
 	let temp = @@
