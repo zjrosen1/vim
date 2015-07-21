@@ -19,6 +19,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-repeat'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -34,6 +35,9 @@ Plugin 'ervandew/supertab'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'mattn/emmet-vim'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'gabesoft/vim-ags'
+Plugin 'flazz/vim-colorschemes'
 
 Plugin 'marcweber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -41,7 +45,6 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
 Plugin 'evidens/vim-twig'
-Plugin 'rking/ag.vim'
 Plugin 'pangloss/vim-javascript'
 
 " vim-scripts
@@ -283,7 +286,7 @@ nmap <silent> <leader>s :set spell!<CR>
 " Toggle set list -- l {{{2
 nmap <Leader>l :set list!<CR>
 " Ag -- a {{{2
-nmap <Leader>a :Ag<SPACE>
+nmap <Leader>a :Ags<SPACE>
 " Surround selection with -- ` ' " {{{2
 " Surround selection with backticks
 nnoremap <leader>` 0v$S`
@@ -496,4 +499,6 @@ if executable('ag')
 endif
 " [ Modeline ] {{{1
 set modelines=1
+" }}}
+
 " vim: set foldmethod=marker:
