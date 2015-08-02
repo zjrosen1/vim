@@ -26,7 +26,11 @@ Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
-Plugin 'Lokaltog/vim-powerline'
+
+Plugin 'bling/vim-airline'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'edkolev/promptline.vim'
+
 Plugin 'tommcdo/vim-exchange'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kchmck/vim-coffee-script'
@@ -303,11 +307,13 @@ map <leader>tm :tabmove<cr>
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Extras for now {{{2
+
 "Fold an html container
 nnoremap <leader>ft Vatzf
 
 "I think this sorts css
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
+vnoremap <leader>y "*y
 
 " Alphabetically sort CSS properties in file with :SortCSS
 " :command! SortCSS :g#\({\n\)\@<=#.,/}/sort
@@ -460,10 +466,16 @@ let g:multi_cursor_quit_key='<C-c>'
 " Mustache {{{2
 let g:mustache_abbreviations = 1
 " NerdTree {{{2
-autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
-map <C-n><C-t> :NERDTreeToggle<CR>
+" autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
+
+"map <C-n><C-t> :NERDTreeToggle<CR>
+map <leader>nt :NERDTreeToggle<CR>
 " Powerline {{{2
-let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+" Promptline {{{2
+let g:promptline_theme = 'airline'
 " Rainbow Parens {{{2
 " nmap <leader>r :RainbowParenthesesToggle<CR>
 " au Syntax * RainbowParenthesesLoadRound
@@ -479,12 +491,12 @@ let g:syntastic_javascript_checkers = ['eslint']
 nmap <leader>st :SyntasticToggleMode<cr>
 " Tabularize {{{2
 if exists(":Tabularize")
-	nmap <Leader>t= :Tabularize /=<CR>
-	vmap <Leader>t= :Tabularize /=<CR>
-	nmap <Leader>t: :Tabularize /:\zs<CR>
-	vmap <Leader>t: :Tabularize /:\zs<CR>
-	nmap <Leader>t> :Tabularize /=><CR>
-	vmap <Leader>t> :Tabularize /=><CR>
+	nmap <leader>t= :Tabularize /=<CR>
+	vmap <leader>t= :Tabularize /=<CR>
+	nmap <leader>t: :Tabularize /:\zs<CR>
+	vmap <leader>t: :Tabularize /:\zs<CR>
+	nmap <leader>t> :Tabularize /=><CR>
+	vmap <leader>t> :Tabularize /=><CR>
 endif
 " Ag The Silver Searcher {{{2
 if executable('ag')
@@ -497,8 +509,11 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+" Git Gutter {{{2
+let g:gitgutter_enabled = 0
+let g:gitgutter_highlight_lines = 1
+nmap <leader>gt :GitGutterToggle<cr>
 " [ Modeline ] {{{1
 set modelines=1
 " }}}
-
 " vim: set foldmethod=marker:
