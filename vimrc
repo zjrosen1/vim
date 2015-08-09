@@ -30,6 +30,7 @@ Plugin 'mattn/gist-vim'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'edkolev/promptline.vim'
+"Plugin 'edkolev/tmuxline.vim'
 
 Plugin 'tommcdo/vim-exchange'
 Plugin 'terryma/vim-multiple-cursors'
@@ -48,6 +49,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
+Plugin 'heavenshell/vim-jsdoc'
 Plugin 'evidens/vim-twig'
 Plugin 'pangloss/vim-javascript'
 
@@ -276,6 +278,8 @@ vnoremap <F1> <ESC>
 " [ Leader Mappings ] {{{1
 " Save a file -- fs {{{2
 nmap <leader>fs :w<CR>
+nmap <leader>fw :silent execute "!say -v Daniel -r 90 -f ~/Dropbox/fp &>/dev/null &" <bar> redraw!<CR>
+nmap <leader>fp :silent execute "!killall say &>/dev/null &" <bar> redraw!<CR>
 " Update vimrc -- v OR ev {{{2
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
@@ -283,7 +287,6 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nmap <leader>sc :tabedit ~/.vim/bundle/vim-snippets/snippets<CR>
 " Toggle Highlighting -- h {{{2
 nmap <silent> <leader>h :set hlsearch!<CR>
-
 " Toggle Spell Checking -- s {{{2
 nmap <silent> <leader>s :set spell!<CR>
 
@@ -468,14 +471,17 @@ let g:mustache_abbreviations = 1
 " NerdTree {{{2
 " autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
 
-"map <C-n><C-t> :NERDTreeToggle<CR>
+map <C-n><C-t> :NERDTreeToggle<CR>
 map <leader>nt :NERDTreeToggle<CR>
-" Powerline {{{2
+" Airline {{{2
 " let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'powerlineish'
+" Tmuxline {{{2
+" let g:tmuxline_preset = 'powerline'
 " Promptline {{{2
-let g:promptline_theme = 'airline'
+let g:promptline_theme = 'powerlineish'
 " Rainbow Parens {{{2
 " nmap <leader>r :RainbowParenthesesToggle<CR>
 " au Syntax * RainbowParenthesesLoadRound
@@ -486,9 +492,9 @@ let g:promptline_theme = 'airline'
 " Syntastic {{{2
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 5
-let g:syntastic_javascript_checkers = ['eslint']
-" Toggle errors
 nmap <leader>st :SyntasticToggleMode<cr>
+" let g:syntastic_javascript_checkers = ['eslint']
+" Toggle errors
 " Tabularize {{{2
 if exists(":Tabularize")
 	nmap <leader>t= :Tabularize /=<CR>
@@ -509,6 +515,8 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+" JsDoc {{{2
+nmap <silent> <leader>js <Plug>(jsdoc)
 " Git Gutter {{{2
 let g:gitgutter_enabled = 0
 let g:gitgutter_highlight_lines = 1
