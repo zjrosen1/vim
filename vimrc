@@ -175,8 +175,6 @@ nmap <leader>sc :tabedit ~/.vim/bundle/vim-snippets/snippets<CR>
 " Toggle Spell Checking -- s
 nmap <silent> <leader>s :set spell!<CR>
 
-" Ack -- a
-nmap <Leader>a :Ack
 " Tab Editing
 " Useful mappings for managing tabs
 map <leader>tt :tabnew<cr>
@@ -353,7 +351,7 @@ else
   map <C-l> <C-w>l
 endif
 " Quickfix shortcuts
-nmap <leader>fa :vimgrep 'pattern' **/*
+nmap <leader>fa :Ag
 nmap <leader>fn :cn<cr>
 nmap <leader>fp :cp<cr>
 nmap <leader>ff :cnf<cr>

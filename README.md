@@ -9,6 +9,9 @@ To enable JavaScript autocomplete:
 - Build [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#full-installation-guide) after installing dependencies
 - Install tern_for_vim npm dependencies with ```cd ~/.vim/bundle/tern_for_vim/ && npm install```
 
+To enable Ag searches:
+- Install [the_silver-searcher](https://github.com/ggreer/the_silver_searcher)
+
 ## Installing plugins as git submodules
 
     cd ~/.vim
