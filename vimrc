@@ -272,6 +272,8 @@ function! SummarizeTabs()
 endfunction
 
 " Plugins
+" Gundo
+nnoremap <leader>u :GundoToggle<CR>
 " Emmet
 let g:user_emmet_leader_key = '<c-e>'
 "Fugitive Git

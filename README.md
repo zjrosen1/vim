@@ -45,6 +45,7 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `ctrl` + `l` | move the cursor right one window
     `,``p` | toggle paste mode
     `,``c` | toggle copy mode
+    `,``u` | toggle undo window
     `,``g``s` | run fugitive's interactive git status
     `,``g``a` | interactively stage changes since last commit (git add -p)
     `,``g``c` | commit staged changes (git commit)
