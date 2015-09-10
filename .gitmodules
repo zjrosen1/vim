@@ -110,3 +110,6 @@
 [submodule "bundle/ag.vim"]
 	path = bundle/ag.vim
 	url = https://github.com/rking/ag.vim
+[submodule "bundle/vim-diminactive"]
+	path = bundle/vim-diminactive
+	url = https://github.com/blueyed/vim-diminactive
