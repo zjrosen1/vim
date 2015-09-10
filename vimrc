@@ -209,10 +209,8 @@ nmap <leader>8 "i
 nmap <leader>9 "j
 
 nnoremap <leader>w <C-w>
-nnoremap <Leader>h <C-w>h
-nnoremap <Leader>j <C-w>j
-nnoremap <Leader>k <C-w>k
-nnoremap <Leader>l <C-w>l
+nnoremap <silent> <leader>wm :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <leader>wl :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <Leader>nt :NERDTreeToggle<cr>
 " like gv but for pasted text
 " nnoremap <leader>v V`]
@@ -358,3 +356,5 @@ nmap <leader>fn :cn<cr>
 nmap <leader>fp :cp<cr>
 nmap <leader>ff :cnf<cr>
 nmap <leader>fl :copen<cr>
+set winheight=15
+set winminheight=3

@@ -36,6 +36,8 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `ctrl` + `c` | exit mutli-cursor (after `ctrl` + `m`)
     `,``w``s` | split window horizontally
     `,``w``v` | split window vertically
+    `,``w``m` | more of current window
+    `,``w``l` | less of current window
     `,``w``o` | close all windows but the current one
     `ctrl` + `j` | move the cursor down one window
     `ctrl` + `k` | move the cursor up one window
