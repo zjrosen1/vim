@@ -1,8 +1,7 @@
-" |--------------------------|
+" ┍--------------------------┑
 " | Author: Zack Rosen       |
 " | Email: zjrosen@gmail.com |
-" | Info: A solid vimrc      |
-" |--------------------------|
+" ┕--------------------------┙
 
 " [ Vundle Setup ]{{{1
 set nocompatible
@@ -43,6 +42,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'gabesoft/vim-ags'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'junegunn/goyo.vim'
 
 Plugin 'marcweber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -52,6 +52,9 @@ Plugin 'honza/vim-snippets'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'evidens/vim-twig'
 Plugin 'pangloss/vim-javascript'
+Plugin 'raichoo/purescript-vim'
+Plugin 'leafgarland/typescript-vim'
+
 
 " vim-scripts
 Plugin 'Tabular'
@@ -86,7 +89,7 @@ nnoremap k gk
 " set number                          " Always show line numbers
 set numberwidth=3                     " Changed the width of line number columns
 set listchars=tab:\|\ ,trail:·,eol:¬  " Use new symbols for tabstops and EOLs
-set ts=2 sts=2 sw=2 noexpandtab       " Default tab stops
+set ts=2 sts=2 sw=2 expandtab         " Default tab stops
 set backspace=indent,eol,start
 set showcmd                           " Shows incomplete command
 set novb noeb                         " Turn off visual bell and remove error beeps
@@ -103,6 +106,10 @@ set t_Co=256                          " Explicitly tell Vim that the terminal su
 " Colors and Theme {{{2
 set background=dark
 colorscheme badwolf
+
+"highlight Pmenu ctermfg=255 ctermbg=120
+"highlight PmenuSel ctermfg=16 ctermbg=39
+
 " [ Auto Commands ] {{{1
 " Auto source vimrc on save {{{2
 augroup reload_vimrc " {
@@ -341,12 +348,12 @@ nmap _= :call Preserve("normal gg=G")<CR>
 command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
 function! QuickfixFilenames()
 "	  Building a hash ensures we get each buffer only once
-		let buffer_numbers = { }
-		for quickfix_item in getqflist()
-			let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
-		endfor
-		return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
-	endfunction
+  let buffer_numbers = { }
+  for quickfix_item in getqflist()
+    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+  endfor
+  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+endfunction
 
 " Set tabstop, softtabstop and shiftwidth to the same value {{{2
 command! -nargs=* Stab call Stab()
@@ -447,6 +454,9 @@ let g:EasyMotion_leader_key = ','
 hi EasyMotionTarget ctermbg=none ctermfg=DarkRed
 " hi EasyMotionShade  ctermbg=none ctermfg=DarkGray
 
+" Snipmape {{{2
+" imap <C-J> <Plug>snipMateNextOrTrigger
+" smap <C-J> <Plug>snipMateNextOrTrigger
 " Emmet {{{2
 let g:user_emmet_leader_key = '<c-e>'
 "Fugitive Git {{{2
@@ -469,7 +479,7 @@ let g:multi_cursor_quit_key='<C-c>'
 " Mustache {{{2
 let g:mustache_abbreviations = 1
 " NerdTree {{{2
-" autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
+autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
 
 map <C-n><C-t> :NERDTreeToggle<CR>
 map <leader>nt :NERDTreeToggle<CR>
@@ -493,7 +503,7 @@ let g:promptline_theme = 'powerlineish'
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 5
 nmap <leader>st :SyntasticToggleMode<cr>
-" let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 " Toggle errors
 " Tabularize {{{2
 if exists(":Tabularize")
@@ -524,4 +534,5 @@ nmap <leader>gt :GitGutterToggle<cr>
 " [ Modeline ] {{{1
 set modelines=1
 " }}}
+
 " vim: set foldmethod=marker:
