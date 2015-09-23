@@ -28,8 +28,6 @@ Plugin 'mattn/gist-vim'
 
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'edkolev/promptline.vim'
-"Plugin 'edkolev/tmuxline.vim'
 
 Plugin 'tommcdo/vim-exchange'
 Plugin 'terryma/vim-multiple-cursors'
@@ -42,7 +40,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'gabesoft/vim-ags'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'junegunn/goyo.vim'
+"Plugin 'junegunn/goyo.vim'
 
 Plugin 'marcweber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -99,13 +97,18 @@ set wildmenu                          " Enhance command-line completion
 set wildmode=longest:full,full
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj
 set wildignore+=*/smarty/*,*/vendor/*,*/node_modules/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*.DS_Store
-set encoding=utf-8
+"set encoding=utf-8
 set cursorline                        " Highlight current line
 set laststatus=2                      " Always show the statusline
 set t_Co=256                          " Explicitly tell Vim that the terminal supports 256 colors
 " Colors and Theme {{{2
 set background=dark
 colorscheme badwolf
+
+" TODO: Get this working better
+"colorscheme gruvbox
+"let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_vert_split = 'bg2'
 
 "highlight Pmenu ctermfg=255 ctermbg=120
 "highlight PmenuSel ctermfg=16 ctermbg=39
@@ -454,7 +457,7 @@ let g:EasyMotion_leader_key = ','
 hi EasyMotionTarget ctermbg=none ctermfg=DarkRed
 " hi EasyMotionShade  ctermbg=none ctermfg=DarkGray
 
-" Snipmape {{{2
+" Snipmate {{{2
 " imap <C-J> <Plug>snipMateNextOrTrigger
 " smap <C-J> <Plug>snipMateNextOrTrigger
 " Emmet {{{2
@@ -484,14 +487,13 @@ autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for 
 map <C-n><C-t> :NERDTreeToggle<CR>
 map <leader>nt :NERDTreeToggle<CR>
 " Airline {{{2
-" let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'powerlineish'
 " Tmuxline {{{2
 " let g:tmuxline_preset = 'powerline'
 " Promptline {{{2
-let g:promptline_theme = 'powerlineish'
+"let g:promptline_theme = 'powerlineish'
 " Rainbow Parens {{{2
 " nmap <leader>r :RainbowParenthesesToggle<CR>
 " au Syntax * RainbowParenthesesLoadRound
@@ -531,6 +533,11 @@ nmap <silent> <leader>js <Plug>(jsdoc)
 let g:gitgutter_enabled = 0
 let g:gitgutter_highlight_lines = 1
 nmap <leader>gt :GitGutterToggle<cr>
+" Gist {{{2
+nmap <leader>gl :Gist -l<cr>
+let g:gist_show_privates = 1
+let g:gist_list_vsplit = 1
+let g:gist_detect_filetype = 1
 " [ Modeline ] {{{1
 set modelines=1
 " }}}
