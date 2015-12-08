@@ -56,11 +56,11 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``g``p` | push current branch to upstream remote (git push)
     `,``g``l` | view recent commits on the current branch (git log)
     `,``g``t` | view recent commits on all branches (git [tree](http://stackoverflow.com/questions/1057564/pretty-git-branch-graphs))
-    `f``a` | search accross all files
-    `f``l` | list search results
-    `f``n` | advance to next search result
-    `f``p` | return to previous search result
-    `f``f` | advance to first search result in next file
+    `,``f``a` | search accross all files
+    `,``f``l` | list search results
+    `,``f``n` | advance to next search result
+    `,``f``p` | return to previous search result
+    `,``f``f` | advance to first search result in next file
     `z``m` | fold all code in active window (using indentation)
     `z``o` | open highlighted code fold
     `z``c` | close highlighted code block (using indentation)
