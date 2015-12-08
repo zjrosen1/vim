@@ -364,3 +364,5 @@ nmap <leader>fn :cn<cr>
 nmap <leader>fp :cp<cr>
 nmap <leader>ff :cnf<cr>
 nmap <leader>fl :copen<cr>
+" Disable folding
+set foldlevel=99
