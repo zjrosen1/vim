@@ -80,7 +80,6 @@ endif
 " Save on losing focus
 au FocusLost * :wa
 " Mappings
-inoremap jj <ESC>
 map ; :
 nmap zr zR
 nmap zm zM
@@ -206,9 +205,14 @@ nmap <leader>7 "h
 nmap <leader>8 "i
 nmap <leader>9 "j
 
+" Windows
+" set winheight=15
+" set winminheight=3
 nnoremap <leader>w <C-w>
 nnoremap <silent> <leader>wm :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <leader>wl :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <leader>wo :mksession! ~/.session.vim<CR>:wincmd o<CR>
+nnoremap <leader>wu :source ~/.session.vim<CR>
 nnoremap <Leader>nt :NERDTreeToggle<cr>
 " like gv but for pasted text
 " nnoremap <leader>v V`]
@@ -276,6 +280,7 @@ nnoremap <leader>u :GundoToggle<CR>
 let g:user_emmet_leader_key = '<c-e>'
 "Fugitive Git
 nmap <leader>ga :Git add -p<CR>
+nmap <leader>gA :Git add .<CR>
 nmap <leader>gc :Git commit<CR>
 nmap <leader>gr :Git rebase -i 
 nmap <leader>gp :Git push<CR>
@@ -299,7 +304,7 @@ let g:multi_cursor_quit_key='<C-c>'
 " Markdown
 let g:vim_markdown_initial_foldlevel=1
 " NerdTree
-autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
+" autocmd vimenter * if !argc() | NERDTree | endif " Load NERDTree by default for directory
 " Rainbow Parens
 nmap <leader>r :RainbowParenthesesToggle<CR>
 au Syntax * RainbowParenthesesLoadRound
@@ -310,6 +315,9 @@ let g:rbpt_loadcmd_toggle = 0
 " Syntastic
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 5
+let g:syntastic_mode_map={ 'mode': 'active',
+      \ 'active_filetypes': [],
+      \ 'passive_filetypes': ['html'] }
 " Tabularize
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
@@ -356,5 +364,3 @@ nmap <leader>fn :cn<cr>
 nmap <leader>fp :cp<cr>
 nmap <leader>ff :cnf<cr>
 nmap <leader>fl :copen<cr>
-set winheight=15
-set winminheight=3

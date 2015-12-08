@@ -30,7 +30,6 @@ The leader key is set to `,` and several commands have been remapped to avoid co
 
     Shortcut | Action
     --- | ---
-    `j``j` | exit insert mode
     `,``n``t` | open file browser (NERDTree)
     `,``b``e` | browse open buffers
     `ctrl` + `p` | fuzzy match file paths in current directory
