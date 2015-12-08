@@ -1,15 +1,15 @@
 # Installing on your own machine
 
-    git clone http://github.com/lowe0292/vim.git ~/.vim
+    git clone git@github.com:castle-dev/vimrc.git ~/.vim
     ln -s ~/.vim/vimrc ~/.vimrc
     cd ~/.vim
     git submodule update --init --recursive
 
 To enable JavaScript autocomplete:
 - Build [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#full-installation-guide) after installing dependencies
-- Install tern_for_vim npm dependencies with ```cd ~/.vim/bundle/tern_for_vim/ && npm install```
+- Install tern_for_vim npm dependencies with `cd ~/.vim/bundle/tern_for_vim/ && npm install`
 
-To enable Ag searches:
+To enable global searches:
 - Install [the_silver-searcher](https://github.com/ggreer/the_silver_searcher)
 
 ## Installing plugins as git submodules
@@ -26,7 +26,7 @@ To enable Ag searches:
 
 ## Keyboard shortcuts
 
-The leader key is set to `,` and several commands have been remapped to avoid conflict with browser shortcuts. This allows me develop from my chromebook. :]
+The leader key is set to `,` and several commands have been remapped to avoid conflict with browser shortcuts. This allows us to develop from chromebook. :]
 
     Shortcut | Action
     --- | ---
@@ -56,21 +56,21 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``g``p` | push current branch to upstream remote (git push)
     `,``g``l` | view recent commits on the current branch (git log)
     `,``g``t` | view recent commits on all branches (git [tree](http://stackoverflow.com/questions/1057564/pretty-git-branch-graphs))
-    `,``f``a` | search accross all files
+    `,``f``a` | global search accross all files in current project
     `,``f``l` | list search results
     `,``f``n` | advance to next search result
     `,``f``p` | return to previous search result
     `,``f``f` | advance to first search result in next file
-    `z``m` | fold all code in active window (using indentation)
-    `z``o` | open highlighted code fold
-    `z``c` | close highlighted code block (using indentation)
     `,``t``t` | open new tab
     `,``t``n` | open the next tab
     `,``t``p` | open the previous tab
     `,``t``f` | open the first tab
     `,``t``l` | open the last tab
     `,``t``o` | close all tabs but the current one
+    `z``m` | fold all code in active window (using indentation)
+    `z``o` | open highlighted code fold
+    `z``c` | close highlighted code block (using indentation)
 
 ## Configuring tmux to play nicely with vim
 
-Paste [this](https://gist.github.com/lowe0292/af5748926a52948709eb) into your ~/.tmux.conf and the window navigation shortcuts from vim will work accross tmux panes too!
+Paste [this tmux config](https://gist.github.com/lowe0292/af5748926a52948709eb) into your ~/.tmux.conf and the window navigation shortcuts from vim will work accross tmux panes too!
