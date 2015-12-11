@@ -368,6 +368,8 @@ nmap <leader>fl :copen<cr>
 set foldlevel=99
 " Angular test conventions
 nmap <leader>tt :A<cr>
+nmap <leader>ti ,rs
+nmap <leader>td ,rb
 let g:angular_source_directory = 'client/src'
 let g:angular_test_directory = 'client/test/unit'
 " Startup screen
