@@ -176,7 +176,6 @@ nmap <silent> <leader>s :set spell!<CR>
 
 " Tab Editing
 " Useful mappings for managing tabs
-map <leader>tt :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove<cr>
@@ -366,3 +365,7 @@ nmap <leader>ff :cnf<cr>
 nmap <leader>fl :copen<cr>
 " Disable folding
 set foldlevel=99
+" Angular test conventions
+nmap <leader>tt :A<cr>
+let g:angular_source_directory = 'client/src'
+let g:angular_test_directory = 'client/test/unit'

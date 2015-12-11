@@ -61,12 +61,9 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``f``n` | advance to next search result
     `,``f``p` | return to previous search result
     `,``f``f` | advance to first search result in next file
-    `,``t``t` | open new tab
-    `,``t``n` | open the next tab
-    `,``t``p` | open the previous tab
-    `,``t``f` | open the first tab
-    `,``t``l` | open the last tab
-    `,``t``o` | close all tabs but the current one
+    `,``r``s` | focus current it in jasmine unit tests
+    `,``r``b` | focus current describe in jasmine unit tests
+    `,``t``t` | toggle angular test
     `z``m` | fold all code in active window (using indentation)
     `z``o` | open highlighted code fold
     `z``c` | close highlighted code block (using indentation)
