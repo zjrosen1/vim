@@ -296,6 +296,7 @@ let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 let g:ctrlp_split_window = 0 " Prefer windows to tabs
 let g:ctrlp_max_files = 0 " Allow full caching of big projects
 let g:ctrlp_max_depth = 40 " Allow full caching of deep files
+let g:ctrlp_reuse_window = 'nofile'
 nmap <leader><leader> :CtrlPClearCache<CR>
 " MultipleCursors
 let g:multi_cursor_next_key='<C-m>'
@@ -369,3 +370,45 @@ set foldlevel=99
 nmap <leader>tt :A<cr>
 let g:angular_source_directory = 'client/src'
 let g:angular_test_directory = 'client/test/unit'
+" Startup screen
+fun! Start()
+    if argc() || line2byte('$') != -1 || v:progname !~? '^[-gmnq]\=vim\=x\=\%[\.exe]$' || &insertmode
+        return
+    endif
+    enew
+    setlocal
+        \ nolist
+        \ nonumber
+        \ bufhidden=wipe
+        \ buftype=nofile
+        \ nobuflisted
+        \ nocursorcolumn
+        \ nocursorline
+        \ noswapfile
+        \ norelativenumber
+    call append('$', '               `-//-`               ')
+    call append('$', '            .:+oooooo+:.            ')
+    call append('$', '        `-/+oooooo+ooooo+/-`        ')
+    call append('$', '     .:+ooooooo:.``.:+oooooo+:.     ')
+    call append('$', '  `/+oooooo+ooo      +oo++ooooo+/`  ')
+    call append('$', '  -oooo+:.`:oo/      /oo/`.:+oooo-  ')
+    call append('$', '  -oooo-   --`        `.-   .oooo-  ')
+    call append('$', '  -oooo-                    .oooo-  ')
+    call append('$', '  -oooo-                    .oooo-  ')
+    call append('$', '  -oooo-       `-//-`       .oooo-  ')
+    call append('$', '  -oooo-    .:/oooooo+:.    .oooo-  ')
+    call append('$', '  -oooo- `:+oooooooooooo+:` .oooo-  ')
+    call append('$', '  -oooo+:.`.:/oooooooo+:.`.:+oooo-  ')
+    call append('$', '  `/+ooooo+/-``-/++/-``-/+oooooo/`  ')
+    call append('$', '     .:+oooooo+:.``.:/oooooo+:.     ')
+    call append('$', '        `-/oooooo++oooooo/-`        ')
+    call append('$', '            .:+oooooo+:.`           ')
+    call append('$', '               `-//-.               ')
+    " setlocal nomodifiable nomodified
+    nnoremap <buffer><silent> e :enew<CR>
+    nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
+    nnoremap <buffer><silent> o :enew <bar> startinsert<CR>
+endfun
+
+" Run after "doing all the startup stuff"
+autocmd VimEnter * call Start()
