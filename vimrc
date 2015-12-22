@@ -191,8 +191,8 @@ nnoremap <leader>ft Vatzf
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
 nmap <Leader>" viwS"
-nmap <leader>p :set paste!<CR>
-nmap <leader>c :set nu!<CR>:set list!<CR>
+map <leader>p "*p
+map <leader>c "*y
 nmap <leader>0 "a
 nmap <leader>1 "b
 nmap <leader>2 "c
