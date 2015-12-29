@@ -1,18 +1,14 @@
-# Installing on your own machine
+# Install on your own machine
 
     git clone git@github.com:castle-dev/vimrc.git ~/.vim
-    ln -s ~/.vim/vimrc ~/.vimrc
     cd ~/.vim
-    git submodule update --init --recursive
+    ./setup.sh
 
-To enable JavaScript autocomplete:
-- Build [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#full-installation-guide) after installing dependencies
-- Install tern_for_vim npm dependencies with `cd ~/.vim/bundle/tern_for_vim/ && npm install`
+To enable JavaScript autocomplete, build [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#full-installation-guide).
 
-To enable global searches:
-- Install [the_silver-searcher](https://github.com/ggreer/the_silver_searcher)
+To enable global searches, install [the_silver-searcher](https://github.com/ggreer/the_silver_searcher).
 
-## Installing plugins as git submodules
+## Add new plugins as git submodules
 
     cd ~/.vim
     mkdir ~/.vim/bundle
@@ -20,7 +16,7 @@ To enable global searches:
     git add .
     git commit -m "Install Fugitive.vim bundle as a submodule."
 
-## Upgrading all bundled plugins
+## Upgrade existing plugins
 
     git submodule foreach git pull origin master
 
@@ -70,4 +66,4 @@ The leader key is set to `,` and several commands have been remapped to avoid co
 
 ## Configuring tmux to play nicely with vim
 
-Paste [this tmux config](https://gist.github.com/lowe0292/af5748926a52948709eb) into your ~/.tmux.conf and the window navigation shortcuts from vim will work accross tmux panes too!
+Install [Castle's tmux config](https://github.com/castle-dev/.tmux.conf#installing-on-mac-or-linux).
