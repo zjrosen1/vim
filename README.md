@@ -4,10 +4,6 @@
     cd ~/.vim
     ./setup.sh
 
-To enable JavaScript autocomplete, build [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#full-installation-guide).
-
-To enable global searches, install [the_silver-searcher](https://github.com/ggreer/the_silver_searcher).
-
 ## Add new plugins as git submodules
 
     cd ~/.vim
