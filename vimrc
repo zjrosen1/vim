@@ -278,7 +278,7 @@ nnoremap <leader>u :GundoToggle<CR>
 " Emmet
 let g:user_emmet_leader_key = '<c-e>'
 "Fugitive Git
-nmap <leader>ga :Git add -p<CR>
+nmap <leader>ga :Git add --all --intent-to-add<CR>:Git add -p<CR>
 nmap <leader>gA :Git add .<CR>
 nmap <leader>gc :Git commit<CR>
 nmap <leader>gr :Git rebase -i 
