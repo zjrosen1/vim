@@ -29,14 +29,18 @@ if [ $OS = "Darwin" ]; then
   brew install cmake
 else
   echo -e "Linux OS detected..."
+  echo -e "${PURPLE}Updating package list...${WHITE}"
+  sudo apt-get update -y
+  echo -e "${PURPLE}Installing build-essential with apt-get...${WHITE}"
+  sudo apt-get install build-essential -y
   echo -e "${PURPLE}Installing cmake with apt-get...${WHITE}"
   sudo apt-get install cmake -y
   echo -e "${PURPLE}Installing python-dev with apt-get...${WHITE}"
   sudo apt-get install python-dev -y
 fi
 cd ~
-mkdir ycm_build
-cd ycm_build
+mkdir .ycm_build
+cd .ycm_build
 echo -e "${PURPLE}Generating config files...${WHITE}"
 cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 echo -e "${PURPLE}Compiling libraries...${WHITE}"
@@ -53,4 +57,4 @@ else
   sudo apt-get install silversearcher-ag -y
 fi
 
-echo -e "${CYAN}Success!"
+echo -e "${CYAN}Success!${WHITE}"
