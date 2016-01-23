@@ -120,9 +120,6 @@ nmap _zs :set ft=zsh<CR>
 nmap _zs :set ft=mkd<CR>
 nmap _vi :set ft=vim<CR>
 
-" Folding
-nnoremap <Space> za
-" nnoremap <Space> /
 
 " Bubble single lines
 nmap <C-Up> [e
@@ -299,7 +296,6 @@ let g:ctrlp_max_depth = 40 " Allow full caching of deep files
 let g:ctrlp_reuse_window = 'nofile'
 nmap <leader><leader> :CtrlPClearCache<CR>
 " MultipleCursors
-let g:multi_cursor_next_key='<C-m>'
 let g:multi_cursor_quit_key='<C-c>'
 " Markdown
 let g:vim_markdown_initial_foldlevel=1

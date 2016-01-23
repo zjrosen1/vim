@@ -26,7 +26,7 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``b``e` | browse open buffers
     `ctrl` + `p` | fuzzy match file paths in current directory
     `,``,` | refresh cache for fuzzy match
-    `enter` | multi-cursor current word (repeat to select more occurences)
+    `ctrl` + `n` | multi-cursor current word (repeat to select more occurences)
     `ctrl` + `c` | exit mutli-cursor (after `ctrl` + `m`)
     `,``w``s` | split window horizontally
     `,``w``v` | split window vertically
