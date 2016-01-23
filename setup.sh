@@ -57,4 +57,9 @@ else
   sudo apt-get install silversearcher-ag -y
 fi
 
+echo -e "${PURPLE}Building vimproc.vim...${WHITE}"
+cd ~/.vim/bundle/vimproc.vim/
+make
+
 echo -e "${CYAN}Success!${WHITE}"
+cd ~

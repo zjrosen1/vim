@@ -113,3 +113,12 @@
 [submodule "bundle/vim-diminactive"]
 	path = bundle/vim-diminactive
 	url = https://github.com/blueyed/vim-diminactive
+[submodule "bundle/typescript-vim"]
+	path = bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "bundle/tsuquyomi"]
+	path = bundle/tsuquyomi
+	url = https://github.com/Quramy/tsuquyomi.git
+[submodule "bundle/vimproc.vim"]
+	path = bundle/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim.git

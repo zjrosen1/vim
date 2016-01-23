@@ -55,7 +55,12 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``f``f` | advance to first search result in next file
     `,``r``s` | focus current it in jasmine unit tests
     `,``r``b` | focus current describe in jasmine unit tests
-    `,``t``t` | toggle angular test
+    `,``t``t` | toggle angular test file
+    `,``t``d` | toggle focus of angular test suite
+    `,``t``i` | toggle focus angular test
+    `,``t``s``d` | go to definition (typesript only)
+    `,``t``s``r` | list references (typesript only)
+    `,``t``s``c` | change name (typesript only)
     `z``m` | fold all code in active window (using indentation)
     `z``o` | open highlighted code fold
     `z``c` | close highlighted code block (using indentation)
