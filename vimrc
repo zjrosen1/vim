@@ -189,7 +189,7 @@ nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
 nmap <Leader>" viwS"
 map <leader>p "*p
-map <leader>c "*y
+map <leader>y "*y
 nmap <leader>0 "a
 nmap <leader>1 "b
 nmap <leader>2 "c
