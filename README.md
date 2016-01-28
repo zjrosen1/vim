@@ -41,7 +41,7 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``y` | copy selection to system clipboard
     `,``u` | toggle undo window
     `,``g``s` | run fugitive's interactive git status
-    `,``g``a` | interactively stage changes since last commit (git add -p)
+    `,``g``a` | add unstaged changes (git add .)
     `,``g``c` | commit staged changes (git commit)
     `,``g``r` | interactively rebase off develop (git rebase -i develop)
     `,``g``d` | compare changes in current file to last commit (git diff)

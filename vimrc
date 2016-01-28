@@ -275,8 +275,7 @@ nnoremap <leader>u :GundoToggle<CR>
 " Emmet
 let g:user_emmet_leader_key = '<c-e>'
 "Fugitive Git
-nmap <leader>ga :Git add --all --intent-to-add<CR>:Git add -p<CR>
-nmap <leader>gA :Git add .<CR>
+nmap <leader>ga :Git add .<CR>
 nmap <leader>gc :Git commit<CR>
 nmap <leader>gr :Git rebase -i 
 nmap <leader>gp :Git push<CR>
@@ -296,6 +295,7 @@ let g:ctrlp_max_depth = 40 " Allow full caching of deep files
 let g:ctrlp_reuse_window = 'nofile'
 nmap <leader><leader> :CtrlPClearCache<CR>
 " MultipleCursors
+let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_quit_key='<C-c>'
 " Markdown
 let g:vim_markdown_initial_foldlevel=1
