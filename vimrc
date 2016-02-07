@@ -120,9 +120,6 @@ nmap _zs :set ft=zsh<CR>
 nmap _zs :set ft=mkd<CR>
 nmap _vi :set ft=vim<CR>
 
-" Folding
-nnoremap <Space> za
-" nnoremap <Space> /
 
 " Bubble single lines
 nmap <C-Up> [e
@@ -192,7 +189,7 @@ nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
 nmap <Leader>" viwS"
 map <leader>p "*p
-map <leader>c "*y
+map <leader>y "*y
 nmap <leader>0 "a
 nmap <leader>1 "b
 nmap <leader>2 "c
@@ -278,8 +275,7 @@ nnoremap <leader>u :GundoToggle<CR>
 " Emmet
 let g:user_emmet_leader_key = '<c-e>'
 "Fugitive Git
-nmap <leader>ga :Git add --all --intent-to-add<CR>:Git add -p<CR>
-nmap <leader>gA :Git add .<CR>
+nmap <leader>ga :Git add .<CR>
 nmap <leader>gc :Git commit<CR>
 nmap <leader>gr :Git rebase -i 
 nmap <leader>gp :Git push<CR>
@@ -299,7 +295,7 @@ let g:ctrlp_max_depth = 40 " Allow full caching of deep files
 let g:ctrlp_reuse_window = 'nofile'
 nmap <leader><leader> :CtrlPClearCache<CR>
 " MultipleCursors
-let g:multi_cursor_next_key='<C-m>'
+let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_quit_key='<C-c>'
 " Markdown
 let g:vim_markdown_initial_foldlevel=1
@@ -414,3 +410,11 @@ endfun
 
 " Run after "doing all the startup stuff"
 autocmd VimEnter * call Start()
+" typescript commands
+if !exists("g:ycm_semantic_triggers")
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
+nmap <leader>tsd :TsuquyomiDefinition<CR>
+nmap <leader>tsr :TsuquyomiReferences<CR>
+nmap <leader>tsc :TsuquyomiRenameSymbol<CR>
