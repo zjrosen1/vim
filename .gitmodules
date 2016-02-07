@@ -94,7 +94,7 @@
 [submodule "bundle/vim-angular"]
 	path = bundle/vim-angular
 	url = https://github.com/burnettk/vim-angular
-  ignore = dirty
+	ignore = dirty
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = http://github.com/Valloric/YouCompleteMe.git
@@ -119,6 +119,7 @@
 [submodule "bundle/tsuquyomi"]
 	path = bundle/tsuquyomi
 	url = https://github.com/Quramy/tsuquyomi.git
+	ignore = dirty
 [submodule "bundle/vimproc.vim"]
 	path = bundle/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim.git
