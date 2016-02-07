@@ -417,4 +417,4 @@ endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
 nmap <leader>tsd :TsuquyomiDefinition<CR>
 nmap <leader>tsr :TsuquyomiReferences<CR>
-nmap <leader>tsc :TsuquyomiRenameSymbol<CR>
+nmap <leader>tsc :!tsc<CR>
