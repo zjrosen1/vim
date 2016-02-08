@@ -313,7 +313,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 5
 let g:syntastic_mode_map={ 'mode': 'active',
       \ 'active_filetypes': [],
-      \ 'passive_filetypes': ['html'] }
+      \ 'passive_filetypes': ['html', 'ts'] }
 " Tabularize
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
@@ -417,4 +417,4 @@ endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
 nmap <leader>tsd :TsuquyomiDefinition<CR>
 nmap <leader>tsr :TsuquyomiReferences<CR>
-nmap <leader>tsc :TsuquyomiRenameSymbol<CR>
+nmap <leader>tsc :!tsc<CR>
