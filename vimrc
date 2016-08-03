@@ -328,6 +328,7 @@ let g:ctrlp_split_window = 0 " Prefer windows to tabs
 let g:ctrlp_max_files = 0 " Allow full caching of big projects
 let g:ctrlp_max_depth = 40 " Allow full caching of deep files
 let g:ctrlp_reuse_window = 'nofile'
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|coverage)$'
 nmap <leader><leader> :CtrlPClearCache<CR>
 " MultipleCursors
 let g:multi_cursor_next_key='<C-n>'
@@ -346,9 +347,10 @@ let g:rbpt_loadcmd_toggle = 0
 " Syntastic
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 5
-let g:syntastic_mode_map={ 'mode': 'active',
+let g:syntastic_mode_map={ 'mode': 'passive',
       \ 'active_filetypes': [],
       \ 'passive_filetypes': ['html', 'ts'] }
+let g:syntastic_check_on_open = 0
 " Tabularize
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
