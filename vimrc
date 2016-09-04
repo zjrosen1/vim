@@ -101,6 +101,9 @@ nmap fq :q!<CR>
 nnoremap <Nul> /
 
 " :Wrap to wrap lines command! -nargs=* Wrap set wrap linebreak nolist
+set nowrap
+set listchars+=precedes:<,extends:>
+
 
 " Toggle errors
 nmap <leader>st :SyntasticToggleMode<cr>
