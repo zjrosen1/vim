@@ -58,19 +58,12 @@
 [submodule "bundle/vim-addon-mw-utils"]
 	path = bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "bundle/SuperTab"]
-	path = bundle/SuperTab
-	url = https://github.com/ervandew/supertab.git
 [submodule "bundle/markdown-mode"]
 	path = bundle/markdown-mode
 	url = https://github.com/plasticboy/vim-markdown.git
 [submodule "bundle/multiple-cursors"]
 	path = bundle/multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
-	ignore = untracked
-[submodule "bundle/vim-snippets"]
-	path = bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
 	ignore = untracked
 [submodule "bundle/smartinput"]
 	path = bundle/smartinput
@@ -123,3 +116,9 @@
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips
+[submodule "bundle/vim-airline-themes"]
+	path = bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab

@@ -39,7 +39,6 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `ctrl` + `l` | move the cursor right one window
     `,``p` | paste from system clipboard
     `,``y` | copy selection to system clipboard
-    `,``u` | toggle undo window
     `,``g``s` | run fugitive's interactive git status
     `,``g``a` | add unstaged changes (git add .)
     `,``g``c` | commit staged changes (git commit)
@@ -53,17 +52,23 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``f``n` | advance to next search result
     `,``f``p` | return to previous search result
     `,``f``f` | advance to first search result in next file
-    `,``r``s` | focus current it in jasmine unit tests
-    `,``r``b` | focus current describe in jasmine unit tests
+    `,``r``s` | focus current it block in jasmine unit tests
+    `,``r``b` | focus current describe block in jasmine unit tests
+    `,``s``p` | toggle spell check
+    `,``s``n` | edit snippets for current filetype
     `,``t``t` | toggle angular test file
     `,``t``d` | toggle focus of angular test suite
     `,``t``i` | toggle focus angular test
     `,``t``s``d` | go to definition (typesript only)
+    `,``t``s``b` | jump back from definition (typesript only)
+    `,``t``s``i` | import highlighted symbol (experimental, typescript only)
     `,``t``s``r` | list references (typesript only)
     `,``t``s``c` | change name (typesript only)
+    `,``u` | toggle undo window
     `z``m` | fold all code in active window (using indentation)
-    `z``o` | open highlighted code fold
+    `z``r` | open all code in active window
     `z``c` | close highlighted code block (using indentation)
+    `z``o` | open highlighted code fold
 
 ## Configuring tmux to play nicely with vim
 
