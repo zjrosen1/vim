@@ -49,6 +49,7 @@ set wildmenu                        " Enhance command-line completion
 set wildmode=longest:full,full
 set encoding=utf-8
 set cursorline                      " Highlight current line
+set cursorcolumn                    " Highlight current column
 set laststatus=2                    " Always show the statusline
 set t_Co=256                        " Explicitly tell Vim that the terminal supports 256 colors
 set backspace=indent,eol,start
@@ -165,46 +166,23 @@ nmap <silent> <leader>h :set hlsearch!<CR>
 " Update vimrc -- v OR ev
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
-" Update snipmate -- sc
-nmap <leader>sc :tabedit ~/.vim/bundle/vim-snippets/snippets<CR>
-function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res == 0
-    if pumvisible()
-      return "\<C-n>"
-    else
-      call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
-        return "\<TAB>"
-      endif
-    endif
-  endif
-  return ""
-endfunction
-
-function! g:UltiSnips_Reverse()
-  call UltiSnips#JumpBackwards()
-  if g:ulti_jump_backwards_res == 0
-    return "\<C-P>"
-  endif
-
-  return ""
-endfunction
 
 
-if !exists("g:UltiSnipsJumpForwardTrigger")
-  let g:UltiSnipsJumpForwardTrigger = "<tab>"
-endif
 
-if !exists("g:UltiSnipsJumpBackwardTrigger")
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-endif
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
-au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
-au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+map <leader>sn <C-w>s:UltiSnipsEdit<CR>
 
 " Toggle Spell Checking -- s
-nmap <silent> <leader>s :set spell!<CR>
+nmap <silent> <leader>sp :set spell!<CR>
 
 " Tab Editing
 " Useful mappings for managing tabs
@@ -223,6 +201,7 @@ nnoremap <leader>ft Vatzf
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
 nmap <Leader>" viwS"
+nmap <Leader>' viwS'
 map <leader>p "*p
 map <leader>y "*y
 nmap <leader>0 "a
