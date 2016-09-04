@@ -27,7 +27,7 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `ctrl` + `p` | fuzzy match file paths in current directory
     `,``,` | refresh cache for fuzzy match
     `ctrl` + `n` | multi-cursor current word (repeat to select more occurences)
-    `ctrl` + `c` | exit mutli-cursor (after `ctrl` + `m`)
+    `ctrl` + `c` | exit mutli-cursor (after `ctrl` + `n`)
     `,``w``s` | split window horizontally
     `,``w``v` | split window vertically
     `,``w``m` | more of current window
@@ -52,8 +52,6 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `,``f``n` | advance to next search result
     `,``f``p` | return to previous search result
     `,``f``f` | advance to first search result in next file
-    `,``r``s` | focus current it block in jasmine unit tests
-    `,``r``b` | focus current describe block in jasmine unit tests
     `,``s``p` | toggle spell check
     `,``s``n` | edit snippets for current filetype
     `,``t``t` | toggle angular test file
