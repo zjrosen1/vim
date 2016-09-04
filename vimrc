@@ -448,10 +448,9 @@ endfun
 " Run after "doing all the startup stuff"
 autocmd VimEnter * call Start()
 " typescript commands
-if !exists("g:ycm_semantic_triggers")
-  let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers['typescript'] = ['.']
 nmap <leader>tsd :TsuquyomiDefinition<CR>
+nmap <leader>tsb :TsuquyomiGoBack<CR>
+nmap <leader>tsi :TsuquyomiImport<CR>
 nmap <leader>tsr :TsuquyomiReferences<CR>
 nmap <leader>tsc :!tsc<CR>
+let g:tsuquyomi_single_quote_import = 1
