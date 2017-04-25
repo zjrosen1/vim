@@ -36,7 +36,7 @@
 	url = https://github.com/Lokaltog/vim-easymotion
 [submodule "bundle/matchit"]
 	path = bundle/matchit
-	url = https://github.com/edsono/vim-matchit
+	url = https://github.com/tmhedberg/matchit
 [submodule "bundle/coffeescript"]
 	path = bundle/coffeescript
 	url = https://github.com/kchmck/vim-coffee-script.git
