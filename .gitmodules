@@ -28,9 +28,6 @@
 [submodule "bundle/emmet-vim"]
 	path = bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
-[submodule "bundle/rainbow_parens"]
-	path = bundle/rainbow_parens
-	url = https://github.com/kien/rainbow_parentheses.vim
 [submodule "bundle/easy-motion"]
 	path = bundle/easy-motion
 	url = https://github.com/Lokaltog/vim-easymotion
@@ -122,3 +119,6 @@
 [submodule "bundle/supertab"]
 	path = bundle/SuperTab
 	url = https://github.com/ervandew/supertab
+[submodule "bundle/rainbow_parens"]
+	path = bundle/rainbow_parens
+	url = https://github.com/kien/rainbow_parentheses.vim
