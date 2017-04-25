@@ -207,6 +207,7 @@ nmap <Leader>" viwS"
 nmap <Leader>' viwS'
 map <leader>p "*p
 map <leader>y "*y
+map <leader>d "*d
 nmap <leader>0 "a
 nmap <leader>1 "b
 nmap <leader>2 "c

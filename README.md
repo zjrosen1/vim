@@ -39,6 +39,7 @@ The leader key is set to `,` and several commands have been remapped to avoid co
     `ctrl` + `l` | move the cursor right one window
     `,``p` | paste from system clipboard
     `,``y` | copy selection to system clipboard
+    `,``d` | cut selection to system clipboard
     `,``g``s` | run fugitive's interactive git status
     `,``g``a` | add unstaged changes (git add .)
     `,``g``c` | commit staged changes (git commit)
