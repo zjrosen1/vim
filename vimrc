@@ -74,6 +74,10 @@ if has("autocmd")
     \   exe "normal! g`\"" |
     \ endif
 endif
+
+" Cursor should always open on the first line of a commit message
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+
 if &t_Co > 2 || has("gui_running")
   syntax on     " Enable syntax highlighting
 endif
